@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "styled-components";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Detail from "./pages/Detail";
+import Admin from "./pages/Admin";
+import Navigation from "./components/Navigation";
+import theme from "./components/layout/theme";
+import GlobalStyle from "./components/layout/GlobalStyles";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Router>
+          <Navigation />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/login" exact element={<Login />} />
+            <Route path="/detail/:id" exact element={<Detail />} />
+            <Route path="/admin" exact element={<Admin />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </AuthProvider>
+
   );
 }
 
 export default App;
+
