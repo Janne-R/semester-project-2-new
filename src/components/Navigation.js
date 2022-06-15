@@ -7,7 +7,7 @@ import AuthContext from "../context/AuthContext";
 
 const Nav = styled.nav`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
-  padding: 5px;
+  padding: 5px 20px;
   width: 100vw;
   position: relative;
   left: 50%;
@@ -31,7 +31,6 @@ const Ul = styled.ul`
     a{
       text-decoration: none;
       font-size: 21px;
-      color: ${({ theme }) => theme.colors.textColorDark};
     }
   }
   @media ${({ theme }) => theme.devices.tabletS} { 
@@ -44,6 +43,17 @@ const BurgerMenu = styled(FiMenu)`
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: none;
   }
+`;
+
+const Link = styled(NavLink)`
+  color: ${({ theme }) => theme.colors.textColorDark};
+`;
+
+const LinkButton = styled(NavLink)`
+ background-color: ${({ theme }) => theme.colors.primaryColor};
+  border-radius: 10px;
+  padding: 5px 20px;
+  color: ${({ theme }) => theme.colors.textColorLight};
 `;
 
 const Button = styled.button`
@@ -68,20 +78,19 @@ const Navigation = () => {
       <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
       <Ul menu={showMenu}>
         <li>
-          <NavLink to="/" style={({ isActive }) =>
+          <Link to="/" style={({ isActive }) =>
             (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
             Home
-          </NavLink>
+          </Link>
         </li>
-
         <li>
           {auth ?
             <Button onClick={logout}>Log out</Button>
             :
-            <NavLink to="/login" style={({ isActive }) =>
+            <LinkButton to="/login" style={({ isActive }) =>
               (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
               Login
-            </NavLink>
+            </LinkButton>
           }
         </li>
       </Ul>
