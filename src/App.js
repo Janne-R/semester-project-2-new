@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Detail from "./pages/Detail";
-import Admin from "./pages/Admin";
-import Header from "./components/Header";
+import Home from "./components/pages/home/Home";
+import Login from "./components/pages/login/Login";
+import Detail from "./components/pages/detail/Detail";
+import Admin from "./components/pages/admin/Admin";
+import Header from "./components/common/Header";
 import theme from "./components/layout/theme";
 import GlobalStyle from "./components/layout/GlobalStyles";
 import {
