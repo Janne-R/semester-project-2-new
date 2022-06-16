@@ -3,10 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle` 
 body, html{
   height: 100%;
-  padding: 10px;
+  margin: 0;
 }
 body{
   font-family: 'Open Sans', sans-serif;
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
 }
 h1, h2, h3, h4{
   font-family: 'Montserrat', sans-serif;

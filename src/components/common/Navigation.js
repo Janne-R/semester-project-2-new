@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import AuthContext from "../../context/AuthContext";
+import Container from "../common/Container";
 
 const Flex = styled.div`
     display: flex;
@@ -82,31 +83,32 @@ const Navigation = () => {
   }
 
   return (
-    <Flex>
-      <Link to="/"><img src="images/logoNew.png" alt="logo" height="50px" /></Link>
-      <nav>
-        <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
-        <Ul menu={showMenu}>
-          <li>
-            <Link to="/" style={({ isActive }) =>
-              (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
-              Home
-            </Link>
-          </li>
-          <li>
-            {auth ?
-              <Button onClick={logout}>Log out</Button>
-              :
-              <LinkButton to="/login" style={({ isActive }) =>
+    <Container>
+      <Flex>
+        <Link to="/"><img src="images/logoNew.png" alt="logo" height="50px" /></Link>
+        <nav>
+          <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
+          <Ul menu={showMenu}>
+            <li>
+              <Link to="/" style={({ isActive }) =>
                 (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
-                Login
-              </LinkButton>
-            }
-          </li>
-        </Ul>
-      </nav>
-
-    </Flex>
+                Home
+              </Link>
+            </li>
+            <li>
+              {auth ?
+                <Button onClick={logout}>Log out</Button>
+                :
+                <LinkButton to="/login" style={({ isActive }) =>
+                  (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+                  Login
+                </LinkButton>
+              }
+            </li>
+          </Ul>
+        </nav>
+      </Flex>
+    </Container>
   );
 };
 

@@ -1,9 +1,16 @@
-import PageTitle from "../../common/PageTitle"
+
+import PostsIntro from "./PostsIntro";
+import IntroText from "./IntroText";
 
 
 const Home = () => {
   return (
-    <PageTitle title="Browse our posts" />
+
+    <>
+      <IntroText />
+      <PostsIntro />
+    </>
+
   )
 }
 
