@@ -25,8 +25,11 @@ const Ul = styled.ul`
   margin-top: 5px;
   li {
     margin-bottom:20px;
+    margin-top:10px;
     @media ${({ theme }) => theme.devices.tabletS} { 
       margin-bottom: 10px;
+      margin-left: 50px;
+    
     }
     a{
       text-decoration: none;
@@ -80,7 +83,7 @@ const Navigation = () => {
 
   return (
     <Flex>
-      <img src="images/logoNew.png" alt="logo" height="50px" />
+      <Link to="/"><img src="images/logoNew.png" alt="logo" height="50px" /></Link>
       <nav>
         <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
         <Ul menu={showMenu}>
