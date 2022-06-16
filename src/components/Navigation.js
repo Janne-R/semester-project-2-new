@@ -5,24 +5,24 @@ import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import AuthContext from "../context/AuthContext";
 
-const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.colors.backgroundColorLight};
-  padding: 5px 20px;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: -20px;
+const Flex = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 10px 0;
 `;
 
 const Ul = styled.ul`
   display: ${(props) => props.menu ? "flex" : "none"};
+  background-color: ${({ theme }) => theme.colors.backgroundColorLight};
+  position: absolute;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-left: 0;
+  align-items: center;
   list-style-type: none;
+  right: 0;
+  width:100% ;
+  z-index: 1;
+  margin-top: 5px;
   li {
     margin-bottom:20px;
     @media ${({ theme }) => theme.devices.tabletS} { 
@@ -36,6 +36,7 @@ const Ul = styled.ul`
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
     flex-direction: row;
+    position: unset;
   }
 `;
 
@@ -50,10 +51,14 @@ const Link = styled(NavLink)`
 `;
 
 const LinkButton = styled(NavLink)`
- background-color: ${({ theme }) => theme.colors.primaryColor};
+ color: ${({ theme }) => theme.colors.textColorDark};
+ @media ${({ theme }) => theme.devices.tabletS} { 
+  background-color: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 10px;
   padding: 5px 20px;
   color: ${({ theme }) => theme.colors.textColorLight};
+  }
+
 `;
 
 const Button = styled.button`
@@ -74,27 +79,31 @@ const Navigation = () => {
   }
 
   return (
-    <Nav>
-      <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
-      <Ul menu={showMenu}>
-        <li>
-          <Link to="/" style={({ isActive }) =>
-            (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
-            Home
-          </Link>
-        </li>
-        <li>
-          {auth ?
-            <Button onClick={logout}>Log out</Button>
-            :
-            <LinkButton to="/login" style={({ isActive }) =>
+    <Flex>
+      <img src="images/logoNew.png" alt="logo" height="50px" />
+      <nav>
+        <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
+        <Ul menu={showMenu}>
+          <li>
+            <Link to="/" style={({ isActive }) =>
               (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
-              Login
-            </LinkButton>
-          }
-        </li>
-      </Ul>
-    </Nav>
+              Home
+            </Link>
+          </li>
+          <li>
+            {auth ?
+              <Button onClick={logout}>Log out</Button>
+              :
+              <LinkButton to="/login" style={({ isActive }) =>
+                (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+                Login
+              </LinkButton>
+            }
+          </li>
+        </Ul>
+      </nav>
+
+    </Flex>
   );
 };
 
