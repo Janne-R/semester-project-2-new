@@ -1,7 +1,15 @@
-const Header = ({ title }) => {
+import Navigation from "./Navigation";
+import HeaderImage from "./HeaderImage";
+
+const Header = () => {
   return (
-    <h1>{title}</h1>
-  );
-};
+    <header>
+      <div>
+        <Navigation />
+        <HeaderImage />
+      </div>
+    </header>
+  )
+}
 
 export default Header;

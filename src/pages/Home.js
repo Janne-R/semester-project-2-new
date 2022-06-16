@@ -1,8 +1,8 @@
-import Header from "../components/Header";
+import PageTitle from "../components/PageTitle"
 
 const Home = () => {
   return (
-    <Header title="Home" />
+    <PageTitle title="Home" />
   )
 }
 

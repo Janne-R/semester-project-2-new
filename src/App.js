@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Detail from "./pages/Detail";
 import Admin from "./pages/Admin";
-import Navigation from "./components/Navigation";
+import Header from "./components/Header";
 import theme from "./components/layout/theme";
 import GlobalStyle from "./components/layout/GlobalStyles";
 import {
@@ -19,7 +19,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Router>
-          <Navigation />
+          <Header />
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/login" exact element={<Login />} />

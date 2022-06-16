@@ -1,4 +1,4 @@
-import Header from "../components/Header"
+import PageTitle from "../components/PageTitle"
 import { useContext, useEffect } from "react";
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const Admin = () => {
 
   return (
     <>
-      <Header title="Admin" />
+      <PageTitle title="Admin" />
 
     </>
   );
