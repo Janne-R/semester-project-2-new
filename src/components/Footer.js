@@ -9,6 +9,13 @@ const Footer = styled.footer`
  background-color: ${({ theme }) => theme.colors.backgroundColorLight};
 `;
 
+const Flex = styled.div`
+ @media ${({ theme }) => theme.devices.tabletS} { 
+display: flex;
+justify-content: space-between;
+ }
+`;
+
 const Ul = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -17,7 +24,6 @@ const Ul = styled.ul`
     margin-top:10px;
     a{
       text-decoration: none;
-      font-size: 18px;
       color: ${({ theme }) => theme.colors.textColorDark};
     }
   }`
@@ -25,49 +31,72 @@ const Ul = styled.ul`
 const Li = styled.li`
   display: flex;
   align-items: center;
-  margin: 0;
+  height: 25px;
   `;
+
+const PhoneIcon = styled(FaPhoneAlt)`
+margin-right: 10px;
+`;
+
+const MailIcon = styled(MdEmail)`
+margin-right: 10px;
+`;
+
+const MapIcon = styled(FaMapMarker)`
+margin-right: 10px;
+`;
+
+const CenterP = styled.p`
+text-align: center;
+`;
+
+const Div = styled.div`
+margin-top: 50px;
+@media ${({ theme }) => theme.devices.tabletS} { 
+  margin-top:0;
+}
+`;
+
 
 const FooterWrapper = () => (
   <Footer>
     <Container>
-      <div>
-        <H3 primary uppercase title="Navigation" />
-        <Ul>
-          <li>
-            <NavLink to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/login">
-              Login
-            </NavLink>
-          </li>
-        </Ul>
-      </div>
-
-
-      <div>
-        <H3 primary uppercase title="Contact Information" />
-        <Ul>
-          <Li>
-            <FaPhoneAlt />
-            <P primary paragraph="Phone" />
-          </Li>
-          <Li>
-            <MdEmail />
-            <P primary paragraph="mail" />
-          </Li>
-          <Li>
-            <FaMapMarker />
-            <P primary paragraph="adress" />
-          </Li>
-        </Ul>
-      </div>
-      <p>Copyright ©Janne Ringdal</p>
+      <Flex>
+        <div>
+          <H3 primary uppercase title="Navigation" />
+          <Ul>
+            <li>
+              <NavLink to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">
+                Login
+              </NavLink>
+            </li>
+          </Ul>
+        </div>
+        <Div>
+          <H3 primary uppercase title="Contact Information" />
+          <Ul>
+            <Li>
+              <PhoneIcon />
+              <P primary paragraph="+47 123 12 123" />
+            </Li>
+            <Li>
+              <MailIcon />
+              <P primary paragraph="post@codestack.com" />
+            </Li>
+            <Li>
+              <MapIcon />
+              <P primary paragraph="123 Street, Norway" />
+            </Li>
+          </Ul>
+        </Div>
+      </Flex>
+      <CenterP>Copyright ©Janne Ringdal</CenterP>
     </Container>
-
   </Footer>
 );
 

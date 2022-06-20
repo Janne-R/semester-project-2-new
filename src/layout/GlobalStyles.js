@@ -44,5 +44,12 @@ p{
     }
 }
 
+a{  
+  font-size: 16px;
+    @media ${({ theme }) => theme.devices.tabletS} { 
+    font-size: 18px;
+    }
+}
+
 `
 export default GlobalStyle;
