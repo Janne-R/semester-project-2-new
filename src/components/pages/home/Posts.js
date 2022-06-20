@@ -18,7 +18,8 @@ const Background = styled.div`
 const PostContainer = styled(Container)`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
   width: 80%;
-  margin-bottom: 20px;
+  max-width: 800px;
+  margin-bottom: 40px;
   border-radius: 5px;
   padding: 10px;
   :first-child{

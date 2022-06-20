@@ -13,7 +13,7 @@ const Form = styled.form`
 const Input = styled.input`
   border: 2px solid black;
   border-radius: 12px;
-  padding: 8px;
+  padding: 10px;
   width: 80%;
   @media ${({ theme }) => theme.devices.tabletS} { 
     width: 50%;
