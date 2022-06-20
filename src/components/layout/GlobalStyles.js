@@ -16,26 +16,25 @@ h1, h2, h3, h4{
 h1{
   font-size: 24px;
   @media ${({ theme }) => theme.devices.tabletS} { 
-    font-size: 36px;
+    font-size: 32px;
     }
 }
 h2{
   font-size: 21px;
 }
 @media ${({ theme }) => theme.devices.tabletS} { 
-    font-size: 30px;
+    font-size: 28px;
     }
 h3{
   font-size: 18px;
   @media ${({ theme }) => theme.devices.tabletS} { 
-    font-size: 28px;
+    font-size: 24px;
     }
 }
 p{  
   font-size: 16px;
- 
     @media ${({ theme }) => theme.devices.tabletS} { 
-    font-size: 21px;
+    font-size: 18px;
     }
 }
 `

@@ -14,6 +14,9 @@ const Input = styled.input`
   border-radius: 12px;
   padding: 8px;
   width: 80%;
+  @media ${({ theme }) => theme.devices.tabletS} { 
+    width: 50%;
+  }
 `;
 
 const Icon = styled(BiSearchAlt2)`
