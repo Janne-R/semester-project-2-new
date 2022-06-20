@@ -1,4 +1,5 @@
 import useApi from '../../../hooks/useApi';
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
@@ -7,6 +8,7 @@ import { ErrorMessage } from "../../ui/DisplayMessage";
 import Container from "../../ui/Container";
 import Button from "../../ui/Button";
 import { H2, P } from "../../DisplayText";
+import SearchPosts from "./SearchPosts";
 
 const Background = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryColor};
@@ -35,9 +37,13 @@ text-decoration: none;
 const url = `${BASE_URL}/api/posts`;
 console.log(url);
 
-const Posts = () => {
+const PostList = () => {
   const { data, isLoading, isError } = useApi(url, []);
-  console.log(data);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    setPosts(data);
+  }, [data]);
 
   if (isLoading) {
     return <Loader />;
@@ -47,21 +53,25 @@ const Posts = () => {
     return <ErrorMessage>A error has occurred</ErrorMessage>;
   }
 
-  if (data) {
+  if (posts) {
     return (
-      <Background>
-        {data.map((post) => (
-          <PostContainer key={post.id}>
-            <StyledLink to={`/detail/${post.id}`}>
-              <H2 primary title={post.attributes.title} />
-              <P primary paragraph={post.attributes.short_description} />
-              <Button text="Read more" />
-            </StyledLink>
-          </PostContainer>
-        ))}
-      </Background>
+      <>
+        <SearchPosts posts={posts} searchResultUpdated={setPosts} />
+        <Background>
+          {posts.map((post) => (
+            <PostContainer key={post.id}>
+              <StyledLink to={`/detail/${post.id}`}>
+                <H2 primary title={post.attributes.title} />
+                <P primary paragraph={post.attributes.short_description} />
+                <Button text="Read more" />
+              </StyledLink>
+            </PostContainer>
+          ))}
+          {posts.length === 0 && <ErrorMessage>No posts</ErrorMessage>}
+        </Background>
+      </>
     )
   }
 }
 
-export default Posts;
+export default PostList;

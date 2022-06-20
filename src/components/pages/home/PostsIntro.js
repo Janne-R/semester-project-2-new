@@ -1,6 +1,5 @@
 import Container from "../../ui/Container";
 import { H1, P } from "../../DisplayText"
-import Paragraph from "../../Paragraph"
 import styled from "styled-components";
 
 const Div = styled.div`

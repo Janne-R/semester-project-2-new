@@ -24,18 +24,29 @@ const Icon = styled(BiSearchAlt2)`
   margin-left: -30px;
 `;
 
-const SearchPosts = () => {
-  return (
+const SearchPosts = (props) => {
+  const onKeyUp = (event) => {
+    const searchValue = event.target.value.trim().toLowerCase();
+    console.log(searchValue);
 
+    const filteredPosts = props.posts.filter((post) => {
+      if (post.attributes.title.toLowerCase().includes(searchValue)) {
+        return true;
+      }
+      return false;
+    });
+
+    props.searchResultUpdated(filteredPosts);
+  };
+
+  return (
     <Container>
       <Form>
-        <Input placeholder="Search for posts here..." />
+        <Input onChange={onKeyUp} placeholder="Search for posts here..." />
         <Icon size="1.5rem" />
       </Form>
     </Container>
-
-
-  )
-}
+  );
+};
 
 export default SearchPosts;
