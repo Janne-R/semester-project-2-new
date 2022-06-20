@@ -3,7 +3,7 @@ import Home from "./components/pages/home/Home";
 import Login from "./components/pages/login/Login";
 import Detail from "./components/pages/detail/Detail";
 import Admin from "./components/pages/admin/Admin";
-import Header from "./components/common/Header";
+import Header from "./components/Header";
 import theme from "./layout/theme";
 import GlobalStyle from "./layout/GlobalStyles";
 import {
@@ -12,6 +12,7 @@ import {
   Route
 } from 'react-router-dom';
 import { AuthProvider } from "./context/AuthContext";
+import FooterWrapper from "./components/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/detail/:id" exact element={<Detail />} />
             <Route path="/admin" exact element={<Admin />} />
           </Routes>
+          <FooterWrapper />
         </Router>
       </ThemeProvider>
     </AuthProvider>

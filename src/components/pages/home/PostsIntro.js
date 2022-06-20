@@ -1,6 +1,6 @@
-import Container from "../../common/ui/Container";
-import { H1 } from "../../common/DisplayText"
-import Paragraph from "../../common/Paragraph"
+import Container from "../../ui/Container";
+import { H1, P } from "../../DisplayText"
+import Paragraph from "../../Paragraph"
 import styled from "styled-components";
 
 const Div = styled.div`
@@ -30,7 +30,7 @@ const PostsIntro = () => {
         <Flex>
           <div>
             <H1 title="Browse our posts" />
-            <Paragraph Paragraph="Welcome to Code Stack, this is the wiki-page for
+            <P paragraph="Welcome to Code Stack, this is the wiki-page for
           front-end development. Browse all our post
           below or try the search filter."/>
           </div>

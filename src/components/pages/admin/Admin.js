@@ -1,4 +1,4 @@
-import { H1 } from "../../common/DisplayText"
+import { H1 } from "../../DisplayText"
 import { useContext, useEffect } from "react";
 import AuthContext from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";

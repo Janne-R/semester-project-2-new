@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from "../../common/ui/Container";
+import Container from "../../ui/Container";
 
 const CenterP = styled.p`
 text-align: center;

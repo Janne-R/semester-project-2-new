@@ -2,11 +2,11 @@ import useApi from '../../../hooks/useApi';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
-import Loader from "../../common/ui/Loader";
-import { ErrorMessage } from "../../common/ui/DisplayMessage";
-import Container from "../../common/ui/Container";
-import Button from "../../common/ui/Button";
-import { H2, P } from "../../common/DisplayText";
+import Loader from "../../ui/Loader";
+import { ErrorMessage } from "../../ui/DisplayMessage";
+import Container from "../../ui/Container";
+import Button from "../../ui/Button";
+import { H2, P } from "../../DisplayText";
 
 const Background = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryColor};

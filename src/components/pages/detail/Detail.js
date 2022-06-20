@@ -1,4 +1,4 @@
-import { H1 } from "../../common/DisplayText"
+import { H1 } from "../../DisplayText";
 
 const Detail = () => {
   return (
