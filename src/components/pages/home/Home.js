@@ -1,6 +1,6 @@
-
 import PostsIntro from "./PostsIntro";
 import IntroText from "./IntroText";
+import SearchPosts from "./SearchPosts";
 
 
 const Home = () => {
@@ -9,6 +9,7 @@ const Home = () => {
     <>
       <IntroText />
       <PostsIntro />
+      <SearchPosts />
     </>
 
   )
