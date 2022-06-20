@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import AuthContext from "../../context/AuthContext";
 import Container from "../common/ui/Container";
+import Button from "../common/ui/Button";
 
 const Flex = styled.div`
     display: flex;
@@ -63,12 +64,6 @@ const LinkButton = styled(NavLink)`
   color: ${({ theme }) => theme.colors.textColorLight};
   }
 
-`;
-
-const Button = styled.button`
-border-radius: 10px;
-padding: 8px;
-border: none;
 `;
 
 const Navigation = () => {

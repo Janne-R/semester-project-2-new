@@ -1,5 +1,5 @@
 import Container from "../../common/ui/Container";
-import PageTitle from "../../common/PageTitle"
+import { H1 } from "../../common/DisplayText"
 import Paragraph from "../../common/Paragraph"
 import styled from "styled-components";
 
@@ -29,7 +29,7 @@ const PostsIntro = () => {
       <Container>
         <Flex>
           <div>
-            <PageTitle title="Browse our posts" />
+            <H1 title="Browse our posts" />
             <Paragraph Paragraph="Welcome to Code Stack, this is the wiki-page for
           front-end development. Browse all our post
           below or try the search filter."/>

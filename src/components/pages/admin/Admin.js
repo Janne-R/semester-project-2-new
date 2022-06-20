@@ -1,4 +1,4 @@
-import PageTitle from "../../common/PageTitle"
+import { H1 } from "../../common/DisplayText"
 import { useContext, useEffect } from "react";
 import AuthContext from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const Admin = () => {
 
   return (
     <>
-      <PageTitle title="Admin" />
+      <H1 title="Admin" />
 
     </>
   );

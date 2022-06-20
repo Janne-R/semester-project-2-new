@@ -1,8 +1,8 @@
-import PageTitle from "../../common/PageTitle"
+import { H1 } from "../../common/DisplayText"
 
 const Detail = () => {
   return (
-    <PageTitle title="Detail" />
+    <H1 title="Detail" />
   )
 }
 

@@ -1,9 +1,9 @@
-import PageTitle from "../../common/PageTitle";
+import { H1 } from "../../common/DisplayText";
 
 const Login = () => {
   return (
-    <PageTitle title="Login" />
+    <H1 title="Login" />
   )
 }
 
-export default Login
+export default Login;
