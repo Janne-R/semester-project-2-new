@@ -4,6 +4,7 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 
 const Form = styled.form`
   margin-top: 80px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: center;  

@@ -4,8 +4,8 @@ import Login from "./components/pages/login/Login";
 import Detail from "./components/pages/detail/Detail";
 import Admin from "./components/pages/admin/Admin";
 import Header from "./components/common/Header";
-import theme from "./components/layout/theme";
-import GlobalStyle from "./components/layout/GlobalStyles";
+import theme from "./layout/theme";
+import GlobalStyle from "./layout/GlobalStyles";
 import {
   BrowserRouter as Router,
   Routes,
