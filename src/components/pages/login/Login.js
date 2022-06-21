@@ -1,10 +1,10 @@
-import { H1 } from "../../DisplayText";
 import LoginForm from "./LoginForm";
+import LoginIntro from "./LoginIntro";
 
 const Login = () => {
   return (
     <>
-      <H1 primary title="Login" />
+      <LoginIntro />
       <LoginForm />
     </>
   )

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 const ButtonStyle = styled.button`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.primaryColor};
   color: ${({ theme }) => theme.colors.textColorLight};
   font-size: 21px;

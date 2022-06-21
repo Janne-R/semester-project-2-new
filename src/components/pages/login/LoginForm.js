@@ -9,14 +9,19 @@ import { BASE_URL } from "../../../constants/api";
 import AuthContext from "../../../context/AuthContext";
 import Button from "../../ui/Button";
 import { ErrorMessage } from "../../ui/DisplayMessage";
+import Container from "../../ui/Container";
+import { H2 } from "../../DisplayText"
+
 
 const FormContainer = styled.form`
+margin-top: 70px;
   display: flex;
     flex-direction: column;
     max-width: 500px;
 `;
 
 const Label = styled.label`
+margin-top: 10px;
 margin-bottom: 10px;
 `;
 
@@ -31,6 +36,10 @@ const Span = styled.span`
 color: red;
 margin-bottom: 20px;
 margin-top: -20px;
+`;
+
+const LoginButton = styled(Button)`
+width: 30%;
 `;
 
 
@@ -63,18 +72,21 @@ const LoginForm = () => {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit(onSubmit)}>
-      {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
-      <Label for="identifier">Username/Email</Label>
-      <Input {...register("identifier")} />
-      {errors.identifier && <Span>{errors.identifier.message}</Span>}
+    <Container>
+      <FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <H2 primary title="Login form" />
+        {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
+        <Label for="identifier">Username/Email</Label>
+        <Input {...register("identifier")} />
+        {errors.identifier && <Span>{errors.identifier.message}</Span>}
 
-      <Label for="password">Password</Label>
-      <Input {...register("password")} type="password" />
-      {errors.password && <Span>{errors.password.message}</Span>}
+        <Label for="password">Password</Label>
+        <Input {...register("password")} type="password" />
+        {errors.password && <Span>{errors.password.message}</Span>}
 
-      <Button text="Login" />
-    </FormContainer>
+        <LoginButton text="Login" />
+      </FormContainer>
+    </Container>
   );
 }
 
