@@ -20,10 +20,10 @@ const Icon = styled(IoIosArrowForward)`
   color: ${({ theme }) => theme.colors.textColorLight};
 `;
 
-const Button = ({ text }) => {
+const Button = ({ text, ...props }) => {
   return (
     <>
-      <ButtonStyle>{text}  <Icon /></ButtonStyle>
+      <ButtonStyle {...props}>{text}  <Icon /></ButtonStyle>
     </>
   )
 }

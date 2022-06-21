@@ -55,7 +55,7 @@ const Link = styled(NavLink)`
   color: ${({ theme }) => theme.colors.textColorDark};
 `;
 
-const LinkButton = styled(NavLink)`
+const LoginButton = styled(NavLink)`
  color: ${({ theme }) => theme.colors.textColorDark};
  @media ${({ theme }) => theme.devices.tabletS} { 
   background-color: ${({ theme }) => theme.colors.primaryColor};
@@ -63,7 +63,6 @@ const LinkButton = styled(NavLink)`
   padding: 5px 20px;
   color: ${({ theme }) => theme.colors.textColorLight};
   }
-
 `;
 
 const Navigation = () => {
@@ -72,7 +71,8 @@ const Navigation = () => {
 
   const navigate = useNavigate();
 
-  function logout() {
+  const logout = () => {
+    console.log("hei");
     setAuth(null);
     navigate("/");
   }
@@ -92,12 +92,12 @@ const Navigation = () => {
             </li>
             <li>
               {auth ?
-                <Button onClick={logout}>Log out</Button>
+                <Button text="Logohhhhut" onClick={logout} />
                 :
-                <LinkButton to="/login" style={({ isActive }) =>
+                <LoginButton to="/login" style={({ isActive }) =>
                   (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
                   Login
-                </LinkButton>
+                </LoginButton>
               }
             </li>
           </Ul>
