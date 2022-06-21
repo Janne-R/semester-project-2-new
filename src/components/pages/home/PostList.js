@@ -1,5 +1,5 @@
 import useApi from '../../../hooks/useApi';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
@@ -64,8 +64,8 @@ const PostList = () => {
             </StyledLink>
           </PostContainer>
         ))}
-        {searchResult && searchResult.length === 0 && posts.length > 0 && <ErrorMessage>No matching</ErrorMessage>}
-        {posts.length === 0 && <ErrorMessage>No posts</ErrorMessage>}
+        {searchResult && searchResult.length === 0 && posts.length > 0 && <ErrorMessage>No posts matching your search</ErrorMessage>}
+        {posts.length === 0 && <ErrorMessage>Sorry we have no posts</ErrorMessage>}
       </Background>
     </>
   )
