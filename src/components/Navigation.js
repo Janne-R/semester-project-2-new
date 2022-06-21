@@ -58,12 +58,28 @@ const Link = styled(NavLink)`
 const LoginButton = styled(NavLink)`
  color: ${({ theme }) => theme.colors.textColorDark};
  @media ${({ theme }) => theme.devices.tabletS} { 
+  display: flex;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 10px;
-  padding: 5px 20px;
+  padding: 10px;
   color: ${({ theme }) => theme.colors.textColorLight};
   }
 `;
+
+const LogoutButton = styled(Button)`
+ background-color: ${({ theme }) => theme.colors.backgroundColorLight};
+ color: ${({ theme }) => theme.colors.textColorDark};
+ margin: 0;
+ padding:0 ;
+ @media ${({ theme }) => theme.devices.tabletS} { 
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.textColorLight};
+  padding: 10px;
+ }
+`;
+
+
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -92,7 +108,7 @@ const Navigation = () => {
             </li>
             <li>
               {auth ?
-                <Button text="Logohhhhut" onClick={logout} />
+                <LogoutButton text="Logout" onClick={logout} />
                 :
                 <LoginButton to="/login" style={({ isActive }) =>
                   (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
