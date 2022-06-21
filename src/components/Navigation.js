@@ -8,10 +8,12 @@ import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 
 const Flex = styled.div`
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0 10px 0;
+    margin-bottom: -12px;
+    margin-top: 10px;
 `;
 
 const Ul = styled.ul`
