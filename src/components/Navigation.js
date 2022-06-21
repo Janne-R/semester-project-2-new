@@ -28,20 +28,23 @@ const Ul = styled.ul`
   li {
     margin-bottom:20px;
     margin-top:10px;
-    @media ${({ theme }) => theme.devices.tabletS} { 
-      margin-bottom: 10px;
-      margin-left: 50px;
     
     }
     a{
       text-decoration: none;
       font-size: 21px;
     }
-  }
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
     flex-direction: row;
     position: unset;
+  }
+`;
+
+const Li = styled.li`
+  @media ${({ theme }) => theme.devices.tabletS} { 
+      margin-bottom: 10px;
+      margin-right: 50px;
   }
 `;
 
@@ -96,26 +99,38 @@ const Navigation = () => {
   return (
     <Container>
       <Flex>
-        <Link to="/"><img src="images/logoNew.png" alt="logo" height="50px" /></Link>
+        <Link to="/"><img src="images/logoNew.png" alt="logo" height="70px" /></Link>
         <nav>
           <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
           <Ul menu={showMenu}>
-            <li>
+            <Li>
               <Link to="/" style={({ isActive }) =>
                 (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
                 Home
               </Link>
-            </li>
-            <li>
-              {auth ?
-                <LogoutButton text="Logout" onClick={logout} />
-                :
-                <LoginButton to="/login" style={({ isActive }) =>
-                  (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
-                  Login
-                </LoginButton>
+            </Li>
+            <>
+              {auth ? (
+                <>
+                  <Li>
+                    <Link to="/admin" style={({ isActive }) =>
+                      (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+                      Admin
+                    </Link>
+                  </Li>
+                  <li>
+                    <LogoutButton text="Logout" onClick={logout} />
+                  </li>
+                </>
+              ) :
+                <li>
+                  <LoginButton to="/login" style={({ isActive }) =>
+                    (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+                    Login
+                  </LoginButton>
+                </li>
               }
-            </li>
+            </>
           </Ul>
         </nav>
       </Flex>

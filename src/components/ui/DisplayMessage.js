@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Message = styled.p`
-  color: ${({ theme }) => theme.colors.textColor};
+  color: ${({ theme }) => theme.colors.textColorLight};
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.highLightColor};
   border-radius: 6px;
