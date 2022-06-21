@@ -38,12 +38,8 @@ const url = `${BASE_URL}/api/posts`;
 console.log(url);
 
 const PostList = () => {
-  const { data, isLoading, isError } = useApi(url, []);
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    setPosts(data);
-  }, [data]);
+  const { data: posts, isLoading, isError } = useApi(url, []);
+  const [searchResult, setSearchResult] = useState(null);
 
   if (isLoading) {
     return <Loader />;
@@ -53,25 +49,26 @@ const PostList = () => {
     return <ErrorMessage>A error has occurred</ErrorMessage>;
   }
 
-  if (posts) {
-    return (
-      <>
-        <SearchPosts posts={posts} searchResultUpdated={setPosts} />
-        <Background>
-          {posts.map((post) => (
-            <PostContainer key={post.id}>
-              <StyledLink to={`/detail/${post.id}`}>
-                <H2 primary title={post.attributes.title} />
-                <P primary paragraph={post.attributes.short_description} />
-                <Button text="Read more" />
-              </StyledLink>
-            </PostContainer>
-          ))}
-          {posts.length === 0 && <ErrorMessage>No posts</ErrorMessage>}
-        </Background>
-      </>
-    )
-  }
+  const postsToPresent = searchResult ? searchResult : posts;
+
+  return (
+    <>
+      <SearchPosts posts={posts} searchResultUpdated={setSearchResult} />
+      <Background>
+        {postsToPresent.map((post) => (
+          <PostContainer key={post.id}>
+            <StyledLink to={`/detail/${post.id}`}>
+              <H2 primary title={post.attributes.title} />
+              <P primary paragraph={post.attributes.short_description} />
+              <Button text="Read more" />
+            </StyledLink>
+          </PostContainer>
+        ))}
+        {searchResult && searchResult.length === 0 && posts.length > 0 && <ErrorMessage>No matching</ErrorMessage>}
+        {posts.length === 0 && <ErrorMessage>No posts</ErrorMessage>}
+      </Background>
+    </>
+  )
 }
 
 export default PostList;
