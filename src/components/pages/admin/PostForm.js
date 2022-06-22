@@ -57,7 +57,7 @@ const url = `${BASE_URL}/api/posts`;
 console.log(url);
 
 const PostForm = () => {
-  const { data, isLoading, isError } = useApi(url, []);
+  const { data: posts, isLoading, isError } = useApi(url, []);
 
   if (isLoading) {
     return <Loader />;
@@ -67,7 +67,7 @@ const PostForm = () => {
     return <ErrorMessage>A error has occurred</ErrorMessage>;
   }
 
-  if (data) {
+  if (posts) {
     return (
       <Container>
         <Background>
@@ -79,7 +79,7 @@ const PostForm = () => {
             <H3 primary uppercase title="Id" />
             <H3 primary uppercase title="Post title" />
           </GridHeader>
-          {data.map((post) => (
+          {posts.map((post) => (
             <Grid key={post.id}>
               <P primary paragraph={post.id} />
               <P primary paragraph={post.attributes.title} />
@@ -87,6 +87,7 @@ const PostForm = () => {
               <FormButton>Delete <ImBin /></FormButton>
             </Grid>
           ))}
+          {posts.length === 0 && <ErrorMessage>No more posts</ErrorMessage>}
         </Background>
       </Container>
     )
