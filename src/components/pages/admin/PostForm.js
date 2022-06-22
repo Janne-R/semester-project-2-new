@@ -4,7 +4,10 @@ import styled from "styled-components";
 import Button from "../../ui/Button";
 import { FiEdit } from 'react-icons/fi';
 import { ImBin } from 'react-icons/im';
-
+import useApi from '../../../hooks/useApi';
+import { BASE_URL } from "../../../constants/api";
+import Loader from "../../ui/Loader";
+import { ErrorMessage } from "../../ui/DisplayMessage";
 
 const Background = styled.div`
   background-color:${({ theme }) => theme.colors.backgroundColorLight};
@@ -50,36 +53,44 @@ font-family: 'Open Sans',sans-serif;
 }
 `;
 
-
+const url = `${BASE_URL}/api/posts`;
+console.log(url);
 
 const PostForm = () => {
-  return (
-    <Container>
-      <Background>
-        <Flex>
-          <H2 primary title="Posts" />
-          <Button width={"150px"} text="Add new" />
-        </Flex>
-        <GridHeader>
-          <H3 primary uppercase title="Id" />
-          <H3 primary uppercase title="Post title" />
-        </GridHeader>
-        <Grid>
-          <P primary paragraph="Id" />
-          <P primary paragraph="Title" />
-          <FormButton>Edit <FiEdit /></FormButton>
-          <FormButton>Delete <ImBin /></FormButton>
-        </Grid>
-        <Grid>
-          <P primary paragraph="Id" />
-          <P primary paragraph="Title" />
-          <FormButton>Edit <FiEdit /></FormButton>
-          <FormButton>Delete <ImBin /></FormButton>
-        </Grid>
-      </Background>
-    </Container>
+  const { data, isLoading, isError } = useApi(url, []);
 
-  )
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <ErrorMessage>A error has occurred</ErrorMessage>;
+  }
+
+  if (data) {
+    return (
+      <Container>
+        <Background>
+          <Flex>
+            <H2 primary title="Posts" />
+            <Button width={"150px"} text="Add new" />
+          </Flex>
+          <GridHeader>
+            <H3 primary uppercase title="Id" />
+            <H3 primary uppercase title="Post title" />
+          </GridHeader>
+          {data.map((post) => (
+            <Grid key={post.id}>
+              <P primary paragraph={post.id} />
+              <P primary paragraph={post.attributes.title} />
+              <FormButton>Edit <FiEdit /></FormButton>
+              <FormButton>Delete <ImBin /></FormButton>
+            </Grid>
+          ))}
+        </Background>
+      </Container>
+    )
+  }
 }
 
 export default PostForm;
