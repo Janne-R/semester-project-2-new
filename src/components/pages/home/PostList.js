@@ -60,7 +60,7 @@ const PostList = () => {
             <StyledLink to={`/detail/${post.id}`}>
               <H2 primary title={post.attributes.title} />
               <P primary paragraph={post.attributes.short_description} />
-              <Button text="Read more" />
+              <Button width={"50%"} text="Read more" />
             </StyledLink>
           </PostContainer>
         ))}

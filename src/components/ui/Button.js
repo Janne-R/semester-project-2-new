@@ -8,7 +8,7 @@ const ButtonStyle = styled.button`
   border-radius: 10px;
   padding: 10px;
   margin: 35px 0 15px 0;
-  min-width: 20%;
+  width: ${props => props.width};
 `;
 
 const Button = ({ text, ...props }) => {

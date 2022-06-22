@@ -14,12 +14,21 @@ const Flex = styled.div`
 
 const Img = styled.img`
   margin-top: 20px;
-  margin-bottom: -56px;
-  @media ${({ theme }) => theme.devices.tabletS} { 
-    height: 265px;
-    margin-right: 17px;
+  margin-bottom: -55px;
+  height:125px ;
+  @media ${({ theme }) => theme.devices.mobileL} { 
+    height:150px ;
+  }
+  @media ${({ theme }) => theme.devices.tabletS}{
+    height: 175px;
+  
+  }
+  @media ${({ theme }) => theme.devices.laptopS}{
+    height: 200px;
   }
 `;
+
+
 
 const AdminIntro = () => {
   return (

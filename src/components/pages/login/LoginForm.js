@@ -27,7 +27,7 @@ margin-bottom: 10px;
 
 const Input = styled.input`
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid ${({ theme }) => theme.colors.primaryColor};
   padding: 10px;
   margin-bottom: 20px;
 `;
