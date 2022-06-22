@@ -34,19 +34,19 @@ const PostForm = () => {
         <Button width={"150px"} text="Add new" />
       </Flex>
       <Flex>
-        <H3 primary uppercase title="Id" />
-        <H3 primary uppercase title="Post title" />
-      </Flex>
-      <FlexTablet>
-        <Flex>
+        <div>
+          <H3 primary uppercase title="Id" />
           <P primary paragraph="Id" />
-          <P primary paragraph="Title" />
-        </Flex>
-        <Flex>
           <Button text="Edit" />
+        </div>
+        <div>
+          <H3 primary uppercase title="Post title" />
+          <P primary paragraph="Title" />
           <Button text="Delete" />
-        </Flex>
-      </FlexTablet>
+        </div>
+      </Flex>
+
+
 
     </PostContainer>
   )
