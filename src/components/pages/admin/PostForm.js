@@ -25,6 +25,10 @@ const FlexTablet = styled.div`
   }
 `;
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+`;
 
 const PostForm = () => {
   return (
@@ -33,21 +37,18 @@ const PostForm = () => {
         <H2 primary title="Posts" />
         <Button width={"150px"} text="Add new" />
       </Flex>
-      <Flex>
-        <div>
-          <H3 primary uppercase title="Id" />
-          <P primary paragraph="Id" />
-          <Button text="Edit" />
-        </div>
-        <div>
-          <H3 primary uppercase title="Post title" />
-          <P primary paragraph="Title" />
-          <Button text="Delete" />
-        </div>
-      </Flex>
+      <Grid>
+        <H3 primary uppercase title="Id" />
+        <H3 primary uppercase title="Post title" />
+      </Grid>
+      <Grid>
 
+        <P primary paragraph="Id" />
+        <P primary paragraph="Title" />
 
-
+        <button>Edit</button>
+        <button>Delete</button>
+      </Grid>
     </PostContainer>
   )
 }
