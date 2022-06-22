@@ -16,18 +16,12 @@ const Flex = styled.div`
   align-items: baseline;
 `;
 
-const FlexTablet = styled.div`
-  @media ${({ theme }) => theme.devices.tabletS} { 
-    display: flex ;
-  justify-content: space-between;
-  align-items: baseline;
-  
-  }
-`;
-
 const Grid = styled.div`
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media ${({ theme }) => theme.devices.tabletS} { 
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const PostForm = () => {
