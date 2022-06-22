@@ -2,6 +2,10 @@ import { H2, H3, P } from "../../DisplayText.js";
 import Container from "../../ui/Container";
 import styled from "styled-components";
 import Button from "../../ui/Button";
+import { FiEdit } from 'react-icons/fi';
+import { ImBin } from 'react-icons/im';
+
+
 
 
 const PostContainer = styled(Container)`
@@ -11,9 +15,9 @@ border-radius: 5px;
 `;
 
 const Flex = styled.div`
-  display: flex ;
-  justify-content: space-between;
-  align-items: baseline;
+ display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: baseline;
 `;
 
 const Grid = styled.div`
@@ -22,6 +26,18 @@ const Grid = styled.div`
   @media ${({ theme }) => theme.devices.tabletS} { 
   grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+`;
+
+const FormButton = styled.button`
+background: none;
+border: none;
+text-align: start;
+padding:0;
+font-size: 16px;
+font-family: 'Open Sans',sans-serif;
+@media ${({ theme }) => theme.devices.tabletS} { 
+  font-size: 18px;
+}
 `;
 
 const PostForm = () => {
@@ -40,8 +56,8 @@ const PostForm = () => {
         <P primary paragraph="Id" />
         <P primary paragraph="Title" />
 
-        <button>Edit</button>
-        <button>Delete</button>
+        <FormButton>Edit <FiEdit /></FormButton>
+        <FormButton>Delete <ImBin /></FormButton>
       </Grid>
     </PostContainer>
   )
