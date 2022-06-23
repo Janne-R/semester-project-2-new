@@ -9,9 +9,8 @@ import { BASE_URL } from "../../../constants/api";
 import Loader from "../../ui/Loader";
 import { ErrorMessage } from "../../ui/DisplayMessage";
 import deleteRequest from "../../../lib/deleteRequest";
-import { useContext } from 'react';
-import AuthContext from "../../../context/AuthContext";
 import useLocalStorage from "../../../hooks/useLocalStorage";
+
 
 const Background = styled.div`
   background-color:${({ theme }) => theme.colors.backgroundColorLight};
@@ -63,17 +62,22 @@ console.log(url);
 const PostForm = () => {
   const { data: posts, isLoading, isError } = useApi(url, []);
 
-
   const [auth, setAuth] = useLocalStorage("auth", null);
   console.log(auth);
 
+
   const deletePost = async (postId) => {
-    try {
-      const response = await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
-      console.log("response", response);
-    } catch (error) {
+    const confirmDelete = window.confirm("Do you want to delete this post?");
+
+    if (confirmDelete) {
+      window.location.reload(false)
+      try {
+        const response = await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
+
+      } catch (error) {
+      }
+      return false;
     }
-    return false;
   }
 
   if (isLoading) {
