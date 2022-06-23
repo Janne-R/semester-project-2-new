@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { H3 } from "../../DisplayText";
 import { MdClose } from 'react-icons/md';
+import AddForm from "./AddForm";
 
 
 
@@ -39,9 +40,9 @@ const AddModal = ({ showAddModal, setShowAddModal }) => {
           <ModalContent showAddModal={showAddModal}>
             <H3 primary uppercase title="Add post" />
             <div>
-
+              <AddForm />
             </div>
-            <CloseModalButton onClick={() => setShowAddModal(prev => !prev)} />
+            <CloseModalButton aria-label="Close modal" onClick={() => setShowAddModal(prev => !prev)} />
           </ModalContent>
 
         </Overlay>
