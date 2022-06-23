@@ -31,6 +31,7 @@ const Img = styled.img`
 
 
 const AdminIntro = () => {
+
   return (
     <Div>
       <Container>

@@ -8,6 +8,10 @@ import useApi from '../../../hooks/useApi';
 import { BASE_URL } from "../../../constants/api";
 import Loader from "../../ui/Loader";
 import { ErrorMessage } from "../../ui/DisplayMessage";
+import deleteRequest from "../../../lib/deleteRequest";
+import { useContext } from 'react';
+import AuthContext from "../../../context/AuthContext";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 
 const Background = styled.div`
   background-color:${({ theme }) => theme.colors.backgroundColorLight};
@@ -59,6 +63,19 @@ console.log(url);
 const PostForm = () => {
   const { data: posts, isLoading, isError } = useApi(url, []);
 
+
+  const [auth, setAuth] = useLocalStorage("auth", null);
+  console.log(auth);
+
+  const deletePost = async (postId) => {
+    try {
+      const response = await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
+      console.log("response", response);
+    } catch (error) {
+    }
+    return false;
+  }
+
   if (isLoading) {
     return <Loader />;
   }
@@ -84,7 +101,7 @@ const PostForm = () => {
               <P primary paragraph={post.id} />
               <P primary paragraph={post.attributes.title} />
               <FormButton>Edit <FiEdit /></FormButton>
-              <FormButton>Delete <ImBin /></FormButton>
+              <FormButton onClick={() => deletePost(post.id)}>Delete <ImBin /></FormButton>
             </Grid>
           ))}
           {posts.length === 0 && <ErrorMessage>No more posts</ErrorMessage>}
