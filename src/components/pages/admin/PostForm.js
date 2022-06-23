@@ -10,6 +10,8 @@ import Loader from "../../ui/Loader";
 import { ErrorMessage } from "../../ui/DisplayMessage";
 import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
+import { useState } from "react";
+import AddModal from "./AddModal";
 
 
 const Background = styled.div`
@@ -61,19 +63,20 @@ console.log(url);
 
 const PostForm = () => {
   const { data: posts, isLoading, isError } = useApi(url, []);
-
   const [auth, setAuth] = useLocalStorage("auth", null);
   console.log(auth);
+  const [showAddModal, setShowAddModal] = useState(false);
 
+  const openAddModal = () => {
+    setShowAddModal(prev => !prev)
+  }
 
   const deletePost = async (postId) => {
     const confirmDelete = window.confirm("Do you want to delete this post?");
-
     if (confirmDelete) {
       window.location.reload(false)
       try {
         const response = await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
-
       } catch (error) {
       }
       return false;
@@ -94,7 +97,8 @@ const PostForm = () => {
         <Background>
           <Flex>
             <H2 primary title="Posts" />
-            <Button width={"150px"} text="Add new" />
+            <Button onClick={openAddModal} width={"150px"} text="Add new" />
+            <AddModal showAddModal={showAddModal} setShowAddModal={setShowAddModal} />
           </Flex>
           <GridHeader>
             <H3 primary uppercase title="Id" />
