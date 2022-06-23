@@ -108,7 +108,7 @@ const PostForm = () => {
               <FormButton onClick={() => deletePost(post.id)}>Delete <ImBin /></FormButton>
             </Grid>
           ))}
-          {posts.length === 0 && <ErrorMessage>No more posts</ErrorMessage>}
+          {posts.length === 0 && <ErrorMessage>There are no more posts!</ErrorMessage>}
         </Background>
       </Container>
     )

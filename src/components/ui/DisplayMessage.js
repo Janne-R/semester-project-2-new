@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Message = styled.p`
   color: ${({ theme }) => theme.colors.textColorLight};
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.highLightColor};
   border-radius: 6px;
