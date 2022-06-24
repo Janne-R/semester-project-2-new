@@ -33,7 +33,7 @@ const Input = styled.input`
 `;
 
 const Span = styled.span`
-color: red;
+color: ${({ theme }) => theme.colors.errorColor};
 margin-bottom: 20px;
 margin-top: -20px;
 `;

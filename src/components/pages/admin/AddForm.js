@@ -19,7 +19,7 @@ margin-bottom: 10px;
 
 const Input = styled.input`
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid ${({ theme }) => theme.colors.primaryColor};
   padding: 10px;
   margin-bottom: 20px;
 `;
@@ -32,7 +32,7 @@ const Textarea = styled.textarea`
 `;
 
 const Span = styled.span`
-color: red;
+color: ${({ theme }) => theme.colors.errorColor};
 margin-bottom: 20px;
 margin-top: -20px;
 `;

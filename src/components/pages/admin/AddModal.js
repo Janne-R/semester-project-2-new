@@ -16,6 +16,7 @@ const Overlay = styled.div`
 
 const ModalContent = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
+  padding:10px ;
   margin: 15% auto; 
   border-radius: 12px;
   width: 80%; 
@@ -25,8 +26,8 @@ const ModalContent = styled.div`
 const CloseModalButton = styled(MdClose)`
 cursor: pointer;
 position: absolute ;
-top: 183px;
-right: 228px;
+top: 200px;
+right: 225px;
 width: 32px ;
 height: 32px ;
 padding:0 ;
