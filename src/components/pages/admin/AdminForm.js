@@ -12,6 +12,7 @@ import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { useState } from "react";
 import AddNewPostModal from "./AddNewPostModal";
+import EditPostModal from "./EditPostModal";
 
 
 const Background = styled.div`
@@ -59,16 +60,21 @@ font-family: 'Open Sans',sans-serif;
 `;
 
 const url = `${BASE_URL}/api/posts`;
-console.log(url);
 
 const AdminForm = () => {
   const { data: posts, isLoading, isError } = useApi(url, []);
   const [auth, setAuth] = useLocalStorage("auth", null);
-  console.log(auth);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [postToEdit, setPostToEdit] = useState(null);
 
   const openAddModal = () => {
     setShowAddModal(prev => !prev)
+  }
+
+  const openEditModal = (post) => {
+    setPostToEdit(post);
+    setShowEditModal(prev => !prev)
   }
 
   const deletePost = async (postId) => {
@@ -108,11 +114,14 @@ const AdminForm = () => {
             <Grid key={post.id}>
               <P primary paragraph={post.id} />
               <P primary paragraph={post.attributes.title} />
-              <FormButton>Edit <FiEdit /></FormButton>
+              <FormButton onClick={() => openEditModal(post)}>Edit <FiEdit /></FormButton>
+
               <FormButton onClick={() => deletePost(post.id)}>Delete <ImBin /></FormButton>
             </Grid>
           ))}
           {posts.length === 0 && <ErrorMessage>There are no more posts!</ErrorMessage>}
+          {showEditModal &&
+            <EditPostModal post={postToEdit} setShowEditModal={setShowEditModal} />}
         </Background>
       </Container>
     )

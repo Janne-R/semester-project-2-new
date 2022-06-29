@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { H3 } from "../../DisplayText";
 import { MdClose } from 'react-icons/md';
-import AddNewPostForm from "./AddNewPostForm";
-import postRequest from "../../../lib/postRequest";
+import EditPostForm from "./EditPostForm";
+import putRequest from "../../../lib/putRequest";
 import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 
@@ -36,12 +36,13 @@ padding:0 ;
 `;
 
 
-const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
+const EditPostModal = ({ setShowEditModal, post }) => {
   const [auth, setAuth] = useLocalStorage("auth", null);
 
-  const addNewPost = async (data) => {
+  const editPost = async (data) => {
     try {
-      const response = await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
+      console.log(data);
+      const response = await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
       console.log("response", response);
 
     } catch (error) {
@@ -51,21 +52,16 @@ const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
   }
 
   return (
-    <>
-      {showAddModal ? (
-        <Overlay>
-          <ModalContent showAddModal={showAddModal}>
-            <H3 primary uppercase title="Add new post" />
-            <div>
-              <AddNewPostForm onSubmit={addNewPost} />
-            </div>
-            <CloseModalButton aria-label="Close modal" onClick={() => setShowAddModal(prev => !prev)} />
-          </ModalContent>
-        </Overlay>
-      ) : null}
-    </>
-
+    <Overlay>
+      <ModalContent>
+        <H3 primary uppercase title="Edit post" />
+        <div>
+          <EditPostForm post={post} onSubmit={editPost} />
+        </div>
+        <CloseModalButton aria-label="Close modal" onClick={() => setShowEditModal(prev => !prev)} />
+      </ModalContent>
+    </Overlay>
   )
 };
 
-export default AddNewPostModal;
+export default EditPostModal;

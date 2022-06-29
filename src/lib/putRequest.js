@@ -1,19 +1,10 @@
-const putRequest = async (url, token) => {
-
-  const data = JSON.stringify({
-    title: title,
-    shortDescription: shortDescription,
-    longDescription: longDescription,
-    code: code,
-  });
-
-  const formData = new FormData();
-  formData.append("data", data);
+const putRequest = async (url, data, token) => {
 
   const options = {
     method: "PUT",
-    body: formData,
+    body: JSON.stringify(data),
     headers: {
+      "Content-type": "application/json",
       Authorization: `Bearer ${token}`
     }
   };
