@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { H3 } from "../../DisplayText";
 import { MdClose } from 'react-icons/md';
 import AddForm from "./AddForm";
-
+import postRequest from "../../../lib/postRequest";
+import { BASE_URL } from "../../../constants/api";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 
 
 const Overlay = styled.div`
@@ -33,21 +35,33 @@ height: 32px ;
 padding:0 ;
 `;
 
+
 const AddModal = ({ showAddModal, setShowAddModal }) => {
+  const [auth, setAuth] = useLocalStorage("auth", null);
+
+  const addNewProduct = async (data) => {
+    try {
+      const response = await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
+      console.log("response", response);
+
+    } catch (error) {
+      console.log("error", error);
+    }
+    return false;
+  }
+
   return (
     <>
       {showAddModal ? (
         <Overlay>
           <ModalContent showAddModal={showAddModal}>
-            <H3 primary uppercase title="Add post" />
+            <H3 primary uppercase title="Add new post" />
             <div>
-              <AddForm />
+              <AddForm onSubmit={addNewProduct} />
             </div>
             <CloseModalButton aria-label="Close modal" onClick={() => setShowAddModal(prev => !prev)} />
           </ModalContent>
-
         </Overlay>
-
       ) : null}
     </>
 

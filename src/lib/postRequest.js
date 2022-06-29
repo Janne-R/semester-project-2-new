@@ -1,9 +1,10 @@
-const postRequest = async (url, data) => {
+const postRequest = async (url, data, headers = {}) => {
   const options = {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
-      "Content-type": "application/json"
+      "Content-type": "application/json",
+      ...headers
     }
   };
 

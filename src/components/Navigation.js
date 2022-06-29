@@ -93,9 +93,11 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    console.log("hei");
-    setAuth(null);
-    navigate("/");
+    const dologOut = window.confirm("Are you sure you want to logout?");
+    if (dologOut) {
+      setAuth(null);
+      navigate("/");
+    }
   }
 
   return (

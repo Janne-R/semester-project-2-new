@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ErrorMessage } from "../../ui/DisplayMessage";
 import { useState } from "react";
 import Button from "../../ui/Button";
-import { useNavigate } from "react-router-dom";
+
 
 const FormContainer = styled.form`
   display: flex;
@@ -44,17 +44,13 @@ const schema = yup.object().shape({
   code: yup.string().required("Please give the post a code example").min(3, "The code example must be at least 3 characters"),
 });
 
-const AddForm = () => {
+const AddForm = ({ onSubmit }) => {
 
-  const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = () => {
-
-  }
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
@@ -81,4 +77,4 @@ const AddForm = () => {
   )
 }
 
-export default AddForm
+export default AddForm;
