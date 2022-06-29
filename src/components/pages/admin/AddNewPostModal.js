@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { H3 } from "../../DisplayText";
 import { MdClose } from 'react-icons/md';
-import AddForm from "./AddForm";
+import AddNewPostForm from "./AddNewPostForm";
 import postRequest from "../../../lib/postRequest";
 import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
@@ -36,7 +36,7 @@ padding:0 ;
 `;
 
 
-const AddModal = ({ showAddModal, setShowAddModal }) => {
+const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
   const [auth, setAuth] = useLocalStorage("auth", null);
 
   const addNewProduct = async (data) => {
@@ -57,7 +57,7 @@ const AddModal = ({ showAddModal, setShowAddModal }) => {
           <ModalContent showAddModal={showAddModal}>
             <H3 primary uppercase title="Add new post" />
             <div>
-              <AddForm onSubmit={addNewProduct} />
+              <AddNewPostForm onSubmit={addNewProduct} />
             </div>
             <CloseModalButton aria-label="Close modal" onClick={() => setShowAddModal(prev => !prev)} />
           </ModalContent>
@@ -68,4 +68,4 @@ const AddModal = ({ showAddModal, setShowAddModal }) => {
   )
 };
 
-export default AddModal;
+export default AddNewPostModal;

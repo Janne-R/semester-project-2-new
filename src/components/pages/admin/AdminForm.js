@@ -11,7 +11,7 @@ import { ErrorMessage } from "../../ui/DisplayMessage";
 import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { useState } from "react";
-import AddModal from "./AddModal";
+import AddNewPostModal from "./AddNewPostModal";
 
 
 const Background = styled.div`
@@ -61,7 +61,7 @@ font-family: 'Open Sans',sans-serif;
 const url = `${BASE_URL}/api/posts`;
 console.log(url);
 
-const PostForm = () => {
+const AdminForm = () => {
   const { data: posts, isLoading, isError } = useApi(url, []);
   const [auth, setAuth] = useLocalStorage("auth", null);
   console.log(auth);
@@ -98,7 +98,7 @@ const PostForm = () => {
           <Flex>
             <H2 primary title="Posts" />
             <Button onClick={openAddModal} width={"150px"} text="Add new" />
-            <AddModal showAddModal={showAddModal} setShowAddModal={setShowAddModal} />
+            <AddNewPostModal showAddModal={showAddModal} setShowAddModal={setShowAddModal} />
           </Flex>
           <GridHeader>
             <H3 primary uppercase title="Id" />
@@ -119,4 +119,4 @@ const PostForm = () => {
   }
 }
 
-export default PostForm;
+export default AdminForm;

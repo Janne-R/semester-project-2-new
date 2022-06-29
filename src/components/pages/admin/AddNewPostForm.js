@@ -44,7 +44,7 @@ const schema = yup.object().shape({
   code: yup.string().required("Please give the post a code example").min(3, "The code example must be at least 3 characters"),
 });
 
-const AddForm = ({ onSubmit }) => {
+const AddNewPostForm = ({ onSubmit }) => {
 
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -77,4 +77,4 @@ const AddForm = ({ onSubmit }) => {
   )
 }
 
-export default AddForm;
+export default AddNewPostForm;
