@@ -8,7 +8,6 @@ import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 
 const Flex = styled.div`
-    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,6 +34,7 @@ const Ul = styled.ul`
     a{
       text-decoration: none;
       font-size: 21px;
+      color: ${({ theme }) => theme.colors.textColorDark};
     }
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
@@ -56,9 +56,7 @@ const BurgerMenu = styled(FiMenu)`
   }
 `;
 
-const Link = styled(NavLink)`
-  color: ${({ theme }) => theme.colors.textColorDark};
-`;
+
 
 const LoginButton = styled(NavLink)`
  color: ${({ theme }) => theme.colors.textColorDark};
@@ -103,24 +101,24 @@ const Navigation = () => {
   return (
     <Container>
       <Flex>
-        <Link to="/"><img src="images/logoNew.png" alt="logo" height="70px" /></Link>
+        <NavLink to="/"><img src="images/logoNew.png" alt="logo" height="70px" /></NavLink>
         <nav>
           <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
           <Ul menu={showMenu}>
             <Li>
-              <Link to="/" style={({ isActive }) =>
+              <NavLink to="/" style={({ isActive }) =>
                 (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
                 Home
-              </Link>
+              </NavLink>
             </Li>
             <>
               {auth ? (
                 <>
                   <Li>
-                    <Link to="/admin" style={({ isActive }) =>
+                    <NavLink to="/admin" style={({ isActive }) =>
                       (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
                       Admin
-                    </Link>
+                    </NavLink>
                   </Li>
                   <li>
                     <LogoutButton text="Logout" onClick={logout} />
