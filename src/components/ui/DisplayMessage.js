@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Message = styled.p`
   color: ${({ theme }) => theme.colors.textColorLight};
-  width: 50%;
+  max-width: 80%;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;

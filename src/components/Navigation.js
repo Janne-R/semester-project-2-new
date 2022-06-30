@@ -70,15 +70,23 @@ const LoginButton = styled(NavLink)`
   &.active {
     text-decoration: underline;
   }
-  color: ${({ theme }) => theme.colors.textColorDark};
-
- @media ${({ theme }) => theme.devices.tabletS} { 
   display: flex;
-  align-items: center;
+    justify-content: center;
+  color: ${({ theme }) => theme.colors.textColorDark};
+width: 150px ;
+ @media ${({ theme }) => theme.devices.tabletS} { 
+ 
   background-color: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 10px;
   padding: 10px;
   color: ${({ theme }) => theme.colors.textColorLight};
+
+
+
+
+ 
+
+ 
   
   }
 `;
