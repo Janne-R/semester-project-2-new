@@ -14,6 +14,7 @@ import {
 import { AuthProvider } from "./context/AuthContext";
 import FooterWrapper from "./components/Footer";
 
+
 function App() {
   return (
     <AuthProvider>
@@ -21,12 +22,14 @@ function App() {
         <GlobalStyle />
         <Router>
           <Header />
+
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/login" exact element={<Login />} />
             <Route path="/detail/:id" exact element={<Detail />} />
             <Route path="/admin" exact element={<Admin />} />
           </Routes>
+
           <FooterWrapper />
         </Router>
       </ThemeProvider>

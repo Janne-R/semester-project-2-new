@@ -7,6 +7,9 @@ import { MdEmail } from 'react-icons/md';
 
 const Footer = styled.footer`
  background-color: ${({ theme }) => theme.colors.backgroundColorLight};
+ position: fixed;
+    bottom: 0;
+    width: 100%;
 `;
 
 const Flex = styled.div`
