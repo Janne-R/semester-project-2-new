@@ -5,7 +5,8 @@ import EditPostForm from "./EditPostForm";
 import putRequest from "../../../lib/putRequest";
 import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-
+import { SuccessMessage } from "../../ui/DisplayMessage";
+import { useState } from 'react';
 
 const Overlay = styled.div`
   position: fixed;
@@ -28,8 +29,8 @@ const ModalContent = styled.div`
 const CloseModalButton = styled(MdClose)`
 cursor: pointer;
 position: absolute ;
-top: 200px;
-right: 225px;
+top:230px;
+right: 350px;
 width: 32px ;
 height: 32px ;
 padding:0 ;
@@ -37,13 +38,21 @@ padding:0 ;
 
 
 const EditPostModal = ({ setShowEditModal, post }) => {
+  const [editPostSuccess, setEditPostSuccess] = useState(null);
   const [auth, setAuth] = useLocalStorage("auth", null);
 
   const editPost = async (data) => {
+    setEditPostSuccess(null);
     try {
       console.log(data);
       const response = await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
       console.log("response", response);
+
+      setEditPostSuccess("Post successfully edited!");
+
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 2000);
 
     } catch (error) {
       console.log("error", error);
@@ -54,6 +63,7 @@ const EditPostModal = ({ setShowEditModal, post }) => {
   return (
     <Overlay>
       <ModalContent>
+        {editPostSuccess && <SuccessMessage>{editPostSuccess}</SuccessMessage>}
         <H3 primary uppercase title="Edit post" />
         <div>
           <EditPostForm post={post} onSubmit={editPost} />

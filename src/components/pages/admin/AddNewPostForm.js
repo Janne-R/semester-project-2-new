@@ -39,8 +39,8 @@ margin-top: -20px;
 
 const schema = yup.object().shape({
   title: yup.string().required("Please give the post a title").min(3, "The title must be at least 3 characters"),
-  shortDescription: yup.string().required("Please give the post a short descriptionn").min(10, "The description must be at least 10 characters"),
-  longDescription: yup.string().required("Please give the post a long description").min(10, "The long description must be at least 10 characters"),
+  short_description: yup.string().required("Please give the post a short descriptionn").min(10, "The description must be at least 10 characters"),
+  description: yup.string().required("Please give the post a long description").min(10, "The long description must be at least 10 characters"),
   code: yup.string().required("Please give the post a code example").min(3, "The code example must be at least 3 characters"),
 });
 
@@ -56,14 +56,14 @@ const AddNewPostForm = ({ onSubmit }) => {
       <Input {...register("title")} />
       {errors.title && <Span>{errors.title.message}</Span>}
 
-      <Label for="shortDescription">Short Description</Label>
-      <Textarea rows="7" {...register("shortDescription")} />
-      {errors.shortDescription && <Span>{errors.shortDescription.message}</Span>}
+      <Label for="short_description">Short Description</Label>
+      <Textarea rows="7" {...register("short_description")} />
+      {errors.short_description && <Span>{errors.short_description.message}</Span>}
 
 
-      <Label for="longDescription">Long Description</Label>
-      <Textarea rows="12" {...register("longDescription")} />
-      {errors.longDescription && <Span>{errors.longDescription.message}</Span>}
+      <Label for="description">Description</Label>
+      <Textarea rows="12" {...register("description")} />
+      {errors.description && <Span>{errors.description.message}</Span>}
 
       <Label for="code">Code example</Label>
       <Textarea rows="7" {...register("code")} />
