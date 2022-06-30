@@ -27,7 +27,6 @@ const Icon = styled(BiSearchAlt2)`
 const SearchPosts = (props) => {
   const onKeyUp = (event) => {
     const searchValue = event.target.value.trim().toLowerCase();
-    console.log(searchValue);
 
     const filteredPosts = props.posts.filter((post) => {
       if (post.attributes.title.toLowerCase().includes(searchValue)) {

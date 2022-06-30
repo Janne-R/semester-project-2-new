@@ -8,14 +8,13 @@ import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { SuccessMessage } from "../../ui/DisplayMessage";
 
-
 const Overlay = styled.div`
   position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.8);
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
 `;
 
 const ModalContent = styled.div`
@@ -28,15 +27,14 @@ const ModalContent = styled.div`
 `;
 
 const CloseModalButton = styled(MdClose)`
-cursor: pointer;
-position: absolute ;
-top:230px;
-right: 350px;
-width: 32px ;
-height: 32px ;
-padding:0 ;
+  cursor: pointer;
+  position: absolute ;
+  top:230px;
+  right: 350px;
+  width: 32px ;
+  height: 32px;
+  padding:0;
 `;
-
 
 const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
   const [addNewPostSuccess, setAddNewPostSuccess] = useState(null);
@@ -46,7 +44,6 @@ const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
     setAddNewPostSuccess(null);
     try {
       const response = await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
-      console.log("response", response);
       setAddNewPostSuccess("Post successfully added!");
 
       setTimeout(() => {
@@ -63,7 +60,6 @@ const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
     <>
       {showAddModal ? (
         <Overlay>
-
           <ModalContent showAddModal={showAddModal}>
             {addNewPostSuccess && <SuccessMessage>{addNewPostSuccess}</SuccessMessage>}
             <H3 primary uppercase title="Add new post" />
@@ -75,7 +71,6 @@ const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
         </Overlay>
       ) : null}
     </>
-
   )
 };
 

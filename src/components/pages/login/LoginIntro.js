@@ -9,7 +9,7 @@ const Div = styled.div`
 const Flex = styled.div`
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
-}
+  }
 `;
 
 const Img = styled.img`
@@ -23,7 +23,7 @@ const Img = styled.img`
 
 const InfoText = styled.div`
 @media ${({ theme }) => theme.devices.tabletS} { 
-margin-right: 40px;
+  margin-right: 40px;
 }
 `;
 

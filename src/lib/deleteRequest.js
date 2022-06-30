@@ -10,7 +10,6 @@ const deleteRequest = async (url, token) => {
   const response = await fetch(url, options);
   if (response.ok) {
     const json = await response.json();
-    console.log(json);
     return json;
 
   }

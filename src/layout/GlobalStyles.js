@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle` 
 body, html{
   height: 100%;
-
 }
 
 #root {
@@ -11,7 +10,6 @@ body, html{
   flex-direction: column;
   min-height: 100vh;
 }
-
 
 body{
   margin: 0;
@@ -28,36 +26,35 @@ h1{
   font-size: 24px;
   @media ${({ theme }) => theme.devices.tabletS} { 
     font-size: 32px;
-    }
+  }
 }
 
 h2{
   font-size: 21px;
-@media ${({ theme }) => theme.devices.tabletS} { 
+  @media ${({ theme }) => theme.devices.tabletS} { 
     font-size: 28px;
-    }
+  }
 }
 
 h3{
   font-size: 18px;
   @media ${({ theme }) => theme.devices.tabletS} { 
     font-size: 24px;
-    }
+  }
 }
 
 p{  
   font-size: 16px;
-    @media ${({ theme }) => theme.devices.tabletS} { 
+  @media ${({ theme }) => theme.devices.tabletS} { 
     font-size: 18px;
-    }
+  }
 }
 
 a{  
   font-size: 16px;
-    @media ${({ theme }) => theme.devices.tabletS} { 
+  @media ${({ theme }) => theme.devices.tabletS} { 
     font-size: 18px;
-    }
+  }
 }
-
 `
 export default GlobalStyle;

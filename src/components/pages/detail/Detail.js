@@ -24,7 +24,6 @@ const CodeContainer = styled.div`
   border-radius: 5px;
   border: solid 0.5em ${({ theme }) => theme.colors.primaryColor};
   border-left-color: ${({ theme }) => theme.colors.highLightColor};
-
 `;
 
 const Detail = () => {

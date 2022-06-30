@@ -14,7 +14,6 @@ import { useState } from "react";
 import AddNewPostModal from "./AddNewPostModal";
 import EditPostModal from "./EditPostModal";
 
-
 const Background = styled.div`
   background-color:${({ theme }) => theme.colors.backgroundColorLight};
   margin: 100px 10px 100px 10px;
@@ -31,15 +30,15 @@ const Flex = styled.div`
 `;
 
 const Grid = styled.div`
- background-color:${({ theme }) => theme.colors.backgroundColorLight};
- :nth-of-type(even){
-  background-color:${({ theme }) => theme.colors.backgroundColor};
- }
- padding: 10px;
+  background-color:${({ theme }) => theme.colors.backgroundColorLight};
+  :nth-of-type(even){
+    background-color:${({ theme }) => theme.colors.backgroundColor};
+  }
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   @media ${({ theme }) => theme.devices.tabletS} { 
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
 
@@ -48,15 +47,15 @@ const GridHeader = styled(Grid)`
 `;
 
 const FormButton = styled.button`
-background: none;
-border: none;
-text-align: start;
-padding:0;
-font-size: 16px;
-font-family: 'Open Sans',sans-serif;
-@media ${({ theme }) => theme.devices.tabletS} { 
-  font-size: 18px;
-}
+  background: none;
+  border: none;
+  text-align: start;
+  padding:0;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+  @media ${({ theme }) => theme.devices.tabletS} { 
+    font-size: 18px;
+  }
 `;
 
 const url = `${BASE_URL}/api/posts`;

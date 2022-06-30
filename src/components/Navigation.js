@@ -8,11 +8,11 @@ import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 
 const Flex = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: -12px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -12px;
+  margin-top: 10px;
 `;
 
 const Ul = styled.ul`
@@ -25,18 +25,14 @@ const Ul = styled.ul`
   right: 0;
   width:100% ;
   z-index: 1;
-  margin-top: 5px;
-   
+  margin-top: 5px; 
   li {
     margin-bottom:20px;
     margin-top:10px;
-  
-    
-    }
-    a{
+  }
+    a {
       text-decoration: none;
       font-size: 21px;
-      
     }
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
@@ -47,8 +43,8 @@ const Ul = styled.ul`
 
 const Li = styled.li`
   @media ${({ theme }) => theme.devices.tabletS} { 
-      margin-bottom: 10px;
-      margin-right: 50px;
+    margin-bottom: 10px;
+    margin-right: 50px;
   }
 `;
 
@@ -59,35 +55,25 @@ const BurgerMenu = styled(FiMenu)`
 `;
 
 const StyledNavLink = styled(NavLink)`
-color: ${({ theme }) => theme.colors.textColorDark};
-&.active {
+  color: ${({ theme }) => theme.colors.textColorDark};
+  &.active {
     text-decoration: underline;
   }
 `;
-
 
 const LoginButton = styled(NavLink)`
   &.active {
     text-decoration: underline;
   }
   display: flex;
-    justify-content: center;
+  justify-content: center;
   color: ${({ theme }) => theme.colors.textColorDark};
-width: 150px ;
- @media ${({ theme }) => theme.devices.tabletS} { 
- 
-  background-color: ${({ theme }) => theme.colors.primaryColor};
-  border-radius: 10px;
-  padding: 10px;
-  color: ${({ theme }) => theme.colors.textColorLight};
-
-
-
-
- 
-
- 
-  
+  width: 150px ;
+  @media ${({ theme }) => theme.devices.tabletS} { 
+    background-color: ${({ theme }) => theme.colors.primaryColor};
+    border-radius: 10px;
+    padding: 10px;
+    color: ${({ theme }) => theme.colors.textColorLight}; 
   }
 `;
 
@@ -102,8 +88,6 @@ const LogoutButton = styled(Button)`
   padding: 10px;
  }
 `;
-
-
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(false);

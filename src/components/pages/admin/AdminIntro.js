@@ -3,13 +3,13 @@ import { H1, P } from "../../DisplayText"
 import styled from "styled-components";
 
 const Div = styled.div`
- background-color: ${({ theme }) => theme.colors.primaryColor};
+  background-color: ${({ theme }) => theme.colors.primaryColor};
 `;
 
 const Flex = styled.div`
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
-}
+  }
 `;
 
 const Img = styled.img`
@@ -21,17 +21,13 @@ const Img = styled.img`
   }
   @media ${({ theme }) => theme.devices.tabletS}{
     height: 175px;
-  
   }
   @media ${({ theme }) => theme.devices.laptopS}{
     height: 200px;
   }
 `;
 
-
-
 const AdminIntro = () => {
-
   return (
     <Div>
       <Container>

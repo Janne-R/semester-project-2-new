@@ -12,17 +12,16 @@ import { ErrorMessage } from "../../ui/DisplayMessage";
 import Container from "../../ui/Container";
 import { H2 } from "../../DisplayText"
 
-
 const FormContainer = styled.form`
-margin-top: 70px;
+  margin-top: 70px;
   display: flex;
-    flex-direction: column;
-    max-width: 500px;
+  flex-direction: column;
+  max-width: 500px;
 `;
 
 const Label = styled.label`
-margin-top: 10px;
-margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const Input = styled.input`
@@ -33,13 +32,13 @@ const Input = styled.input`
 `;
 
 const Span = styled.span`
-color: ${({ theme }) => theme.colors.errorColor};
-margin-bottom: 20px;
-margin-top: -20px;
+  color: ${({ theme }) => theme.colors.errorColor};
+  margin-bottom: 20px;
+  margin-top: -20px;
 `;
 
 const LoginButton = styled(Button)`
-width: 30%;
+  width: 30%;
 `;
 
 
@@ -62,7 +61,6 @@ const LoginForm = () => {
     setLoginError(null);
     try {
       const response = await postRequest(`${BASE_URL}/api/auth/local`, data);
-      console.log("response", response);
       setAuth(response);
       navigate("/admin");
     } catch (error) {
@@ -76,6 +74,7 @@ const LoginForm = () => {
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <H2 primary title="Login form" />
         {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
+
         <Label for="identifier">Username/Email</Label>
         <Input {...register("identifier")} />
         {errors.identifier && <Span>{errors.identifier.message}</Span>}

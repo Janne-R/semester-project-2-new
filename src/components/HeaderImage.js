@@ -7,7 +7,6 @@ const HeroImg = styled(BackgroundImage)`
   left: 50%;
   margin-left: -50vw;
   margin-top: -10px;
- 
   @media ${({ theme }) => theme.devices.tabletS}{
     height: 360px;
   }

@@ -2,19 +2,16 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ErrorMessage } from "../../ui/DisplayMessage";
-import { useState } from "react";
 import Button from "../../ui/Button";
-
 
 const FormContainer = styled.form`
   display: flex;
-    flex-direction: column;
-    max-width: 500px;
+  flex-direction: column;
+  max-width: 500px;
 `;
 
 const Label = styled.label`
-margin-bottom: 10px;
+  margin-bottom: 10px;
 `;
 
 const Input = styled.input`
@@ -32,9 +29,9 @@ const Textarea = styled.textarea`
 `;
 
 const Span = styled.span`
-color: ${({ theme }) => theme.colors.errorColor};
-margin-bottom: 20px;
-margin-top: -20px;
+  color: ${({ theme }) => theme.colors.errorColor};
+  margin-bottom: 20px;
+  margin-top: -20px;
 `;
 
 const schema = yup.object().shape({
@@ -49,7 +46,6 @@ const AddNewPostForm = ({ onSubmit }) => {
     resolver: yupResolver(schema),
   });
 
-
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
       <Label for="title">Title</Label>
@@ -60,7 +56,6 @@ const AddNewPostForm = ({ onSubmit }) => {
       <Textarea rows="7" {...register("short_description")} />
       {errors.short_description && <Span>{errors.short_description.message}</Span>}
 
-
       <Label for="description">Description</Label>
       <Textarea rows="12" {...register("description")} />
       {errors.description && <Span>{errors.description.message}</Span>}
@@ -68,7 +63,6 @@ const AddNewPostForm = ({ onSubmit }) => {
       <Label for="code">Code example</Label>
       <Textarea rows="7" {...register("code")} />
       {errors.code && <Span>{errors.code.message}</Span>}
-
 
       <Button text="Add post" />
     </FormContainer>

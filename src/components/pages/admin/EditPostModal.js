@@ -10,11 +10,11 @@ import { useState } from 'react';
 
 const Overlay = styled.div`
   position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.8);
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
 `;
 
 const ModalContent = styled.div`
@@ -27,15 +27,14 @@ const ModalContent = styled.div`
 `;
 
 const CloseModalButton = styled(MdClose)`
-cursor: pointer;
-position: absolute ;
-top:230px;
-right: 350px;
-width: 32px ;
-height: 32px ;
-padding:0 ;
+  cursor: pointer;
+  position: absolute ;
+  top:230px;
+  right: 350px;
+  width: 32px ;
+  height: 32px ;
+  padding:0 ;
 `;
-
 
 const EditPostModal = ({ setShowEditModal, post }) => {
   const [editPostSuccess, setEditPostSuccess] = useState(null);
@@ -44,10 +43,7 @@ const EditPostModal = ({ setShowEditModal, post }) => {
   const editPost = async (data) => {
     setEditPostSuccess(null);
     try {
-      console.log(data);
       const response = await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
-      console.log("response", response);
-
       setEditPostSuccess("Post successfully edited!");
 
       setTimeout(() => {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const P = styled.p`
-color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+  color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
 `;
 
 const Paragraph = ({ Paragraph, primary }) => {

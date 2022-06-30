@@ -31,11 +31,10 @@ const PostContainer = styled(Container)`
 `;
 
 const StyledLink = styled(Link)`
-text-decoration: none;
+  text-decoration: none;
 `;
 
 const url = `${BASE_URL}/api/posts`;
-console.log(url);
 
 const PostList = () => {
   const { data: posts, isLoading, isError } = useApi(url, []);

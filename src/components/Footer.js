@@ -6,15 +6,15 @@ import { FaPhoneAlt, FaMapMarker } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 const Footer = styled.footer`
- background-color: ${({ theme }) => theme.colors.backgroundColorLight};
+  background-color: ${({ theme }) => theme.colors.backgroundColorLight};
 
 `;
 
 const Flex = styled.div`
- @media ${({ theme }) => theme.devices.tabletS} { 
-display: flex;
-justify-content: space-between;
- }
+  @media ${({ theme }) => theme.devices.tabletS} { 
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const Ul = styled.ul`
@@ -23,41 +23,41 @@ const Ul = styled.ul`
   li {
     margin-bottom:20px;
     margin-top:10px;
-    a{
+    a {
       text-decoration: none;
       color: ${({ theme }) => theme.colors.textColorDark};
     }
-  }`
+  }
+`;
 
 const Li = styled.li`
   display: flex;
   align-items: center;
   height: 25px;
-  `;
+`;
 
 const PhoneIcon = styled(FaPhoneAlt)`
-margin-right: 10px;
+  margin-right: 10px;
 `;
 
 const MailIcon = styled(MdEmail)`
-margin-right: 10px;
+  margin-right: 10px;
 `;
 
 const MapIcon = styled(FaMapMarker)`
-margin-right: 10px;
+  margin-right: 10px;
 `;
 
 const CenterP = styled.p`
-text-align: center;
+  text-align: center;
 `;
 
 const Div = styled.div`
-margin-top: 50px;
-@media ${({ theme }) => theme.devices.tabletS} { 
-  margin-top:0;
-}
+  margin-top: 50px;
+  @media ${({ theme }) => theme.devices.tabletS} { 
+    margin-top:0;
+  }
 `;
-
 
 const FooterWrapper = () => (
   <Footer>

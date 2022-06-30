@@ -15,7 +15,6 @@ import { AuthProvider } from "./context/AuthContext";
 import FooterWrapper from "./components/Footer";
 import Wrapper from "./components/ui/Wrapper";
 
-
 function App() {
   return (
     <AuthProvider>
@@ -40,4 +39,3 @@ function App() {
 }
 
 export default App;
-

@@ -10,7 +10,7 @@ const Flex = styled.div`
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
     flex-direction: row-reverse;
-}
+  }
 `;
 
 const Img = styled.img`

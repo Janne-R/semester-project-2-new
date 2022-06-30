@@ -12,7 +12,6 @@ const putRequest = async (url, data, token) => {
   const response = await fetch(url, options);
   if (response.ok) {
     const json = await response.json();
-    console.log(json);
     return json;
 
   }
