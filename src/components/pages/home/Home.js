@@ -6,11 +6,11 @@ import PostList from "./PostList";
 const Home = () => {
   return (
 
-    <>
+    <main>
       <IntroText />
       <PostsIntro />
       <PostList />
-    </>
+    </main>
 
   )
 }

@@ -43,7 +43,7 @@ const Detail = () => {
 
   if (post) {
     return (
-      <>
+      <main>
         <PostContainer>
           <H1 primary title={post.attributes.title} />
           <P primary paragraph={post.attributes.short_description} />
@@ -52,7 +52,7 @@ const Detail = () => {
             <P paragraph={post.attributes.code} />
           </CodeContainer>
         </PostContainer>
-      </>
+      </main>
     )
   }
 }

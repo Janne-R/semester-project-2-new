@@ -3,10 +3,18 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle` 
 body, html{
   height: 100%;
-  margin: 0;
+
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 body{
+  margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-color: ${({ theme }) => theme.colors.backgroundColor};
 }

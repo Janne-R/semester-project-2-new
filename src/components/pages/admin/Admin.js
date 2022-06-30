@@ -16,11 +16,11 @@ const Admin = () => {
   }, []);
 
   return (
-    <>
+    <main>
       <AdminIntro />
       <AdminForm />
 
-    </>
+    </main>
   );
 };
 

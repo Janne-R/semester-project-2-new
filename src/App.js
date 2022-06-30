@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom';
 import { AuthProvider } from "./context/AuthContext";
 import FooterWrapper from "./components/Footer";
+import Wrapper from "./components/ui/Wrapper";
 
 
 function App() {
@@ -22,14 +23,14 @@ function App() {
         <GlobalStyle />
         <Router>
           <Header />
-
-          <Routes>
-            <Route path="/" exact element={<Home />} />
-            <Route path="/login" exact element={<Login />} />
-            <Route path="/detail/:id" exact element={<Detail />} />
-            <Route path="/admin" exact element={<Admin />} />
-          </Routes>
-
+          <Wrapper>
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/login" exact element={<Login />} />
+              <Route path="/detail/:id" exact element={<Detail />} />
+              <Route path="/admin" exact element={<Admin />} />
+            </Routes>
+          </Wrapper>
           <FooterWrapper />
         </Router>
       </ThemeProvider>
