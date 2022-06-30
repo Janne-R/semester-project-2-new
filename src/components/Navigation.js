@@ -26,15 +26,17 @@ const Ul = styled.ul`
   width:100% ;
   z-index: 1;
   margin-top: 5px;
+   
   li {
     margin-bottom:20px;
     margin-top:10px;
+  
     
     }
     a{
       text-decoration: none;
       font-size: 21px;
-      color: ${({ theme }) => theme.colors.textColorDark};
+      
     }
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
@@ -56,10 +58,20 @@ const BurgerMenu = styled(FiMenu)`
   }
 `;
 
+const StyledNavLink = styled(NavLink)`
+color: ${({ theme }) => theme.colors.textColorDark};
+&.active {
+    text-decoration: underline;
+  }
+`;
 
 
 const LoginButton = styled(NavLink)`
- color: ${({ theme }) => theme.colors.textColorDark};
+  &.active {
+    text-decoration: underline;
+  }
+  color: ${({ theme }) => theme.colors.textColorDark};
+
  @media ${({ theme }) => theme.devices.tabletS} { 
   display: flex;
   align-items: center;
@@ -67,6 +79,7 @@ const LoginButton = styled(NavLink)`
   border-radius: 10px;
   padding: 10px;
   color: ${({ theme }) => theme.colors.textColorLight};
+  
   }
 `;
 
@@ -106,19 +119,17 @@ const Navigation = () => {
           <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
           <Ul menu={showMenu}>
             <Li>
-              <NavLink to="/" style={({ isActive }) =>
-                (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+              <StyledNavLink to="/">
                 Home
-              </NavLink>
+              </StyledNavLink>
             </Li>
             <>
               {auth ? (
                 <>
                   <Li>
-                    <NavLink to="/admin" style={({ isActive }) =>
-                      (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+                    <StyledNavLink to="/admin">
                       Admin
-                    </NavLink>
+                    </StyledNavLink>
                   </Li>
                   <li>
                     <LogoutButton text="Logout" onClick={logout} />
@@ -126,8 +137,7 @@ const Navigation = () => {
                 </>
               ) :
                 <li>
-                  <LoginButton to="/login" style={({ isActive }) =>
-                    (isActive ? { textDecorationLine: "underline" } : { textDecorationLine: "none" })}>
+                  <LoginButton to="/login">
                     Login
                   </LoginButton>
                 </li>
