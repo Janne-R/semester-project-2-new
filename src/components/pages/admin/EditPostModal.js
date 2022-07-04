@@ -9,7 +9,8 @@ import { SuccessMessage } from "../../ui/DisplayMessage";
 import { useState } from 'react';
 
 const Overlay = styled.div`
-  position: fixed;
+ position: fixed;
+  overflow-y: scroll;
   bottom: 0;
   left: 0;
   height: 100%;
@@ -28,12 +29,15 @@ const ModalContent = styled.div`
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
-  position: absolute ;
-  top:230px;
-  right: 350px;
   width: 32px ;
   height: 32px ;
   padding:0 ;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const EditPostModal = ({ setShowEditModal, post }) => {
@@ -60,11 +64,14 @@ const EditPostModal = ({ setShowEditModal, post }) => {
     <Overlay>
       <ModalContent>
         {editPostSuccess && <SuccessMessage>{editPostSuccess}</SuccessMessage>}
-        <H3 primary uppercase title="Edit post" />
+        <Flex>
+          <H3 primary uppercase title="Edit post" />
+          <CloseModalButton aria-label="Close modal" onClick={() => setShowEditModal(prev => !prev)} />
+        </Flex>
         <div>
           <EditPostForm post={post} onSubmit={editPost} />
         </div>
-        <CloseModalButton aria-label="Close modal" onClick={() => setShowEditModal(prev => !prev)} />
+
       </ModalContent>
     </Overlay>
   )

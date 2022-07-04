@@ -10,6 +10,7 @@ import { SuccessMessage } from "../../ui/DisplayMessage";
 
 const Overlay = styled.div`
   position: fixed;
+  overflow-y: scroll;
   bottom: 0;
   left: 0;
   height: 100%;
@@ -28,12 +29,15 @@ const ModalContent = styled.div`
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
-  position: absolute ;
-  top:230px;
-  right: 350px;
   width: 32px ;
   height: 32px;
   padding:0;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
@@ -62,11 +66,15 @@ const AddNewPostModal = ({ showAddModal, setShowAddModal }) => {
         <Overlay>
           <ModalContent showAddModal={showAddModal}>
             {addNewPostSuccess && <SuccessMessage>{addNewPostSuccess}</SuccessMessage>}
-            <H3 primary uppercase title="Add new post" />
+            <Flex>
+              <H3 primary uppercase title="Add new post" />
+              <CloseModalButton aria-label="Close modal" onClick={() => setShowAddModal(prev => !prev)} />
+            </Flex>
             <div>
               <AddNewPostForm onSubmit={addNewPost} />
+
             </div>
-            <CloseModalButton aria-label="Close modal" onClick={() => setShowAddModal(prev => !prev)} />
+
           </ModalContent>
         </Overlay>
       ) : null}
