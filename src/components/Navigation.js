@@ -75,6 +75,10 @@ const LoginButton = styled(NavLink)`
     padding: 10px;
     color: ${({ theme }) => theme.colors.textColorLight}; 
   }
+  transition-duration: 0.4s;
+  :hover{
+    background-color: ${({ theme }) => theme.colors.highLightColor};
+  }
 `;
 
 const LogoutButton = styled(Button)`
@@ -87,6 +91,10 @@ const LogoutButton = styled(Button)`
   color: ${({ theme }) => theme.colors.textColorLight};
   padding: 10px;
  }
+ transition-duration: 0.4s;
+  :hover{
+    background-color: ${({ theme }) => theme.colors.highLightColor};
+  }
 `;
 
 const Navigation = () => {

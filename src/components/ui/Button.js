@@ -9,6 +9,10 @@ const ButtonStyle = styled.button`
   padding: 10px;
   margin: 35px 0 15px 0;
   width: 150px;
+  transition-duration: 0.4s;
+  :hover{
+    background-color: ${({ theme }) => theme.colors.highLightColor};
+  }
 `;
 
 const Button = ({ text, ...props }) => {
