@@ -25,12 +25,12 @@ const Flex = styled.div`
   grid-template-columns: 3fr 1fr;
   align-items: baseline;
   padding: 10px;
-  
 `;
 
 const Grid = styled.div`
   :nth-of-type(even){
     background-color:${({ theme }) => theme.colors.backgroundColor};
+    margin: 1px;
   }
   padding: 10px;
   display: grid;
@@ -113,7 +113,6 @@ const AdminForm = () => {
               <P primary paragraph={post.id} />
               <P primary paragraph={post.attributes.title} />
               <FormButton onClick={() => openEditModal(post)}>Edit <FiEdit /></FormButton>
-
               <FormButton onClick={() => deletePost(post.id)}>Delete <ImBin /></FormButton>
             </Grid>
           ))}

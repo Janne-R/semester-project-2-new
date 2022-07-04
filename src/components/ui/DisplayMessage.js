@@ -4,7 +4,7 @@ export const Message = styled.p`
   color: ${({ theme }) => theme.colors.textColorLight};
   max-width: 80%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
   text-align: center;
   padding: 10px;
@@ -13,9 +13,9 @@ export const Message = styled.p`
 `;
 
 export const ErrorMessage = styled(Message)`
-      background-color: ${({ theme }) => theme.colors.errorColor};
+  background-color: ${({ theme }) => theme.colors.errorColor};
 `;
 
 export const SuccessMessage = styled(Message)`
-   background-color: ${({ theme }) => theme.colors.successColor};
+  background-color: ${({ theme }) => theme.colors.successColor};
 `;

@@ -77,13 +77,13 @@ const PostModal = ({ setShowModal, post }) => {
     }
     return false;
   }
+
   const title = isAddMode ? "Add new post" : "Edit post";
   const formAction = isAddMode ? addNewPost : editPost;
 
   return (
     <Overlay>
       <ModalContent>
-        {postSuccess && <SuccessMessage>{postSuccess}</SuccessMessage>}
         <Flex>
           <H3 primary uppercase title={title} />
           <CloseModalButton aria-label="Close modal" onClick={() => setShowModal(prev => !prev)} />
@@ -91,7 +91,7 @@ const PostModal = ({ setShowModal, post }) => {
         <div>
           <PostForm post={post} submitText={title} onSubmit={formAction} />
         </div>
-
+        {postSuccess && <SuccessMessage>{postSuccess}</SuccessMessage>}
       </ModalContent>
     </Overlay>
   )

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Loader = styled.div`
-  border: 16px solid #f3f3f3; 
-  border-top: 16px solid black; 
+  border: 16px solid ${({ theme }) => theme.colors.highLightColor};; 
+  border-top: 16px solid ${({ theme }) => theme.colors.primaryColor}; 
   border-radius: 50%;
   width: 120px;
   height: 120px;
