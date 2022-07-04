@@ -29,7 +29,6 @@ const Flex = styled.div`
 `;
 
 const Grid = styled.div`
-  background-color:${({ theme }) => theme.colors.backgroundColorLight};
   :nth-of-type(even){
     background-color:${({ theme }) => theme.colors.backgroundColor};
   }
