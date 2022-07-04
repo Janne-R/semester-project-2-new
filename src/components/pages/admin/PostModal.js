@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { H3 } from "../../DisplayText";
 import { MdClose } from 'react-icons/md';
-import EditPostForm from "./EditPostForm";
+import PostForm from "./PostForm";
 import putRequest from "../../../lib/putRequest";
+import postRequest from "../../../lib/postRequest";
 import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { SuccessMessage } from "../../ui/DisplayMessage";
@@ -40,15 +41,32 @@ const Flex = styled.div`
   align-items: center;
 `;
 
-const EditPostModal = ({ setShowEditModal, post }) => {
-  const [editPostSuccess, setEditPostSuccess] = useState(null);
+const PostModal = ({ setShowModal, post }) => {
+  const [postSuccess, setPostSuccess] = useState(null);
   const [auth, setAuth] = useLocalStorage("auth", null);
+  const isAddMode = post === undefined;
+
+  const addNewPost = async (data) => {
+    setPostSuccess(null);
+    try {
+      const response = await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
+      setPostSuccess("Post successfully added!");
+
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 2000);
+
+    } catch (error) {
+      console.log("error", error);
+    }
+    return false;
+  };
 
   const editPost = async (data) => {
-    setEditPostSuccess(null);
+    setPostSuccess(null);
     try {
       const response = await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
-      setEditPostSuccess("Post successfully edited!");
+      setPostSuccess("Post successfully edited!");
 
       setTimeout(() => {
         window.location.reload(false);
@@ -59,17 +77,19 @@ const EditPostModal = ({ setShowEditModal, post }) => {
     }
     return false;
   }
+  const title = isAddMode ? "Add new post" : "Edit post";
+  const formAction = isAddMode ? addNewPost : editPost;
 
   return (
     <Overlay>
       <ModalContent>
-        {editPostSuccess && <SuccessMessage>{editPostSuccess}</SuccessMessage>}
+        {postSuccess && <SuccessMessage>{postSuccess}</SuccessMessage>}
         <Flex>
-          <H3 primary uppercase title="Edit post" />
-          <CloseModalButton aria-label="Close modal" onClick={() => setShowEditModal(prev => !prev)} />
+          <H3 primary uppercase title={title} />
+          <CloseModalButton aria-label="Close modal" onClick={() => setShowModal(prev => !prev)} />
         </Flex>
         <div>
-          <EditPostForm post={post} onSubmit={editPost} />
+          <PostForm post={post} submitText={title} onSubmit={formAction} />
         </div>
 
       </ModalContent>
@@ -77,4 +97,4 @@ const EditPostModal = ({ setShowEditModal, post }) => {
   )
 };
 
-export default EditPostModal;
+export default PostModal;

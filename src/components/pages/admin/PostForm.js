@@ -41,9 +41,15 @@ const schema = yup.object().shape({
   code: yup.string().required("Please give the post a code example").min(3, "The code example must be at least 3 characters"),
 });
 
-const AddNewPostForm = ({ onSubmit }) => {
+const PostForm = ({ onSubmit, post = { attributes: {} }, submitText }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: {
+      title: post.attributes.title,
+      short_description: post.attributes.short_description,
+      description: post.attributes.description,
+      code: post.attributes.code,
+    },
   });
 
   return (
@@ -56,7 +62,7 @@ const AddNewPostForm = ({ onSubmit }) => {
       <Textarea rows="7" {...register("short_description")} />
       {errors.short_description && <Span>{errors.short_description.message}</Span>}
 
-      <Label for="description">Description</Label>
+      <Label for="description">Long Description</Label>
       <Textarea rows="12" {...register("description")} />
       {errors.description && <Span>{errors.description.message}</Span>}
 
@@ -64,9 +70,9 @@ const AddNewPostForm = ({ onSubmit }) => {
       <Textarea rows="7" {...register("code")} />
       {errors.code && <Span>{errors.code.message}</Span>}
 
-      <Button text="Add post" />
+      <Button text={submitText} />
     </FormContainer>
   )
 }
 
-export default AddNewPostForm;
+export default PostForm;

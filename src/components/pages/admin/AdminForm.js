@@ -11,8 +11,7 @@ import { ErrorMessage } from "../../ui/DisplayMessage";
 import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { useState } from "react";
-import AddNewPostModal from "./AddNewPostModal";
-import EditPostModal from "./EditPostModal";
+import PostModal from "./PostModal";
 
 const Background = styled.div`
   background-color:${({ theme }) => theme.colors.backgroundColorLight};
@@ -103,7 +102,8 @@ const AdminForm = () => {
           <Flex>
             <H2 primary title="Posts" />
             <Button onClick={openAddModal} width={"150px"} text="Add new" />
-            <AddNewPostModal showAddModal={showAddModal} setShowAddModal={setShowAddModal} />
+            {showAddModal &&
+              <PostModal setShowModal={setShowAddModal} />}
           </Flex>
           <GridHeader>
             <H3 primary uppercase title="Id" />
@@ -120,7 +120,7 @@ const AdminForm = () => {
           ))}
           {posts.length === 0 && <ErrorMessage>There are no more posts!</ErrorMessage>}
           {showEditModal &&
-            <EditPostModal post={postToEdit} setShowEditModal={setShowEditModal} />}
+            <PostModal post={postToEdit} setShowModal={setShowEditModal} />}
         </Background>
       </Container>
     )
