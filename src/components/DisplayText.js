@@ -10,12 +10,11 @@ const StyledH2 = styled.h2`
 
 const StyledH3 = styled.h3`
   color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
-  text-transform: ${props => props.uppercase ? "uppercase" : "lowercase"};
 `;
 
 const StyledH4 = styled.h4`
   color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
-
+  text-transform: ${props => props.uppercase ? "uppercase" : "lowercase"};
 `;
 
 const StyledP = styled.p`
@@ -34,15 +33,15 @@ export const H2 = ({ title, primary }) => {
   );
 };
 
-export const H3 = ({ title, primary, uppercase }) => {
+export const H3 = ({ title, primary }) => {
   return (
-    <StyledH3 primaryColor={primary} uppercase={uppercase}>{title}</StyledH3>
+    <StyledH3 primaryColor={primary} >{title}</StyledH3>
   );
 };
 
-export const H4 = ({ title, primary }) => {
+export const H4 = ({ title, primary, uppercase }) => {
   return (
-    <StyledH4 primaryColor={primary}>{title}</StyledH4>
+    <StyledH4 primaryColor={primary} uppercase={uppercase}>{title}</StyledH4>
   );
 };
 

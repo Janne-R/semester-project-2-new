@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Container from "./ui/Container";
-import { H3, P } from "./DisplayText";
+import { H4, P } from "./DisplayText";
 import { FaPhoneAlt, FaMapMarker } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 const Footer = styled.footer`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
-
 `;
 
 const Flex = styled.div`
@@ -64,7 +63,7 @@ const FooterWrapper = () => (
     <Container>
       <Flex>
         <div>
-          <H3 primary uppercase title="Navigation" />
+          <H4 primary uppercase title="Navigation" />
           <Ul>
             <li>
               <NavLink to="/">
@@ -79,7 +78,7 @@ const FooterWrapper = () => (
           </Ul>
         </div>
         <Div>
-          <H3 primary uppercase title="Contact Information" />
+          <H4 primary uppercase title="Contact Information" />
           <Ul>
             <Li>
               <PhoneIcon />
@@ -96,7 +95,7 @@ const FooterWrapper = () => (
           </Ul>
         </Div>
       </Flex>
-      <CenterP>Copyright ©Janne Ringdal</CenterP>
+      <CenterP>Copyright ©CodeStack</CenterP>
     </Container>
   </Footer>
 );

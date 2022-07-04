@@ -43,6 +43,13 @@ h3{
   }
 }
 
+h4{
+  font-size: 18px;
+  @media ${({ theme }) => theme.devices.tabletS} { 
+    font-size: 24px;
+  }
+}
+
 p{  
   font-size: 16px;
   @media ${({ theme }) => theme.devices.tabletS} { 
