@@ -106,7 +106,7 @@ const Navigation = () => {
   return (
     <Container>
       <Flex>
-        <NavLink to="/"><img src="images/logoNew.png" alt="logo" height="70px" /></NavLink>
+        <NavLink to="/"><img src="/images/logoNew.png" alt="logo" height="70px" /></NavLink>
         <nav>
           <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
           <Ul menu={showMenu}>
