@@ -37,7 +37,7 @@ const StyledLink = styled(Link)`
 const url = `${BASE_URL}/api/posts`;
 
 const PostList = () => {
-  const { data: posts, isLoading, isError } = useApi(url, []);
+  const { data: posts, isLoading, isError } = useApi(url, null);
   const [searchResult, setSearchResult] = useState(null);
 
   if (isLoading) {
@@ -50,24 +50,26 @@ const PostList = () => {
 
   const postsToPresent = searchResult ? searchResult : posts;
 
-  return (
-    <>
-      <SearchPosts posts={posts} searchResultUpdated={setSearchResult} />
-      <Background>
-        {postsToPresent.map((post) => (
-          <PostContainer key={post.id}>
-            <StyledLink to={`/detail/${post.id}`}>
-              <H2 primary title={post.attributes.title} />
-              <P primary paragraph={post.attributes.short_description} />
-              <Button text="Read more" />
-            </StyledLink>
-          </PostContainer>
-        ))}
-        {searchResult && searchResult.length === 0 && posts.length > 0 && <ErrorMessage>No posts matching your search</ErrorMessage>}
-        {posts.length === 0 && <ErrorMessage>Sorry we have no posts</ErrorMessage>}
-      </Background>
-    </>
-  )
+  if (posts) {
+    return (
+      <>
+        <SearchPosts posts={posts} searchResultUpdated={setSearchResult} />
+        <Background>
+          {postsToPresent.map((post) => (
+            <PostContainer key={post.id}>
+              <StyledLink to={`/detail/${post.id}`}>
+                <H2 primary title={post.attributes.title} />
+                <P primary paragraph={post.attributes.short_description} />
+                <Button text="Read more" />
+              </StyledLink>
+            </PostContainer>
+          ))}
+          {searchResult && searchResult.length === 0 && posts.length > 0 && <ErrorMessage>No posts matching your search</ErrorMessage>}
+          {posts.length === 0 && <ErrorMessage>Sorry we have no posts</ErrorMessage>}
+        </Background>
+      </>
+    )
+  }
 }
 
 export default PostList;

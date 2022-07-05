@@ -59,7 +59,7 @@ const FormButton = styled.button`
 const url = `${BASE_URL}/api/posts`;
 
 const AdminForm = () => {
-  const { data: posts, isLoading, isError } = useApi(url, []);
+  const { data: posts, isLoading, isError } = useApi(url, null);
   const [auth, setAuth] = useLocalStorage("auth", null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -93,7 +93,7 @@ const AdminForm = () => {
   if (isError) {
     return <ErrorMessage>A error has occurred</ErrorMessage>;
   }
-
+  console.log("heiiiii", isError, isLoading, posts)
   if (posts) {
     return (
       <Container>
