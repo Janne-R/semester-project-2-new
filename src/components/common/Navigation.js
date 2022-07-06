@@ -65,11 +65,11 @@ const LoginButton = styled(NavLink)`
   display: flex;
   justify-content: center;
   color: ${({ theme }) => theme.colors.textColorDark};
-  width: 150px ;
+  width: 150px;
+  border-radius: 10px;
+  padding: 10px;
   @media ${({ theme }) => theme.devices.tabletS} { 
     background-color: ${({ theme }) => theme.colors.primaryColor};
-    border-radius: 10px;
-    padding: 10px;
     color: ${({ theme }) => theme.colors.textColorLight}; 
   }
   transition-duration: 0.4s;
@@ -82,7 +82,6 @@ const LogoutButton = styled(Button)`
  background-color: ${({ theme }) => theme.colors.backgroundColorLight};
  color: ${({ theme }) => theme.colors.textColorDark};
  margin: 0;
- padding:0 ;
  @media ${({ theme }) => theme.devices.tabletS} { 
   background-color: ${({ theme }) => theme.colors.primaryColor};
   color: ${({ theme }) => theme.colors.textColorLight};
