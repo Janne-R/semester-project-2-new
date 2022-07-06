@@ -1,13 +1,13 @@
-import { H2, H3, P } from "../../DisplayText.js";
-import Container from "../../ui/Container";
+import { H2, H3, P } from "../../common/DisplayText";
+import Container from "../../common/Container";
 import styled from "styled-components";
-import Button from "../../ui/Button";
+import Button from "../../common/Button";
 import { FiEdit } from 'react-icons/fi';
 import { ImBin } from 'react-icons/im';
 import useApi from '../../../hooks/useApi';
 import { BASE_URL } from "../../../constants/api";
-import Loader from "../../ui/Loader";
-import { ErrorMessage } from "../../ui/Messages";
+import Loader from "../../common/Loader";
+import { ErrorMessage } from "../../common/Messages";
 import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { useState } from "react";

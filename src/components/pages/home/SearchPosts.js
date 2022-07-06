@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from "../../ui/Container";
+import Container from "../../common/Container";
 import { BiSearchAlt2 } from 'react-icons/bi';
 
 const Form = styled.form`

@@ -3,9 +3,9 @@ import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
-import AuthContext from "../context/AuthContext";
-import Container from "../components/ui/Container";
-import Button from "../components/ui/Button";
+import AuthContext from "../../context/AuthContext";
+import Container from "./Container";
+import Button from "./Button";
 
 const Flex = styled.div`
   display: flex;

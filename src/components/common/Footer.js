@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Container from "./ui/Container";
+import Container from "./Container";
 import { H4, P } from "./DisplayText";
 import { FaPhoneAlt, FaMapMarker } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';

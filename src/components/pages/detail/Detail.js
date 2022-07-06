@@ -1,9 +1,9 @@
-import { H1, P } from "../../DisplayText";
+import { H1, P } from "../../common/DisplayText";
 import useApi from "../../../hooks/useApi";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
-import Loader from "../../ui/Loader";
-import { ErrorMessage } from "../../ui/Messages";
+import Loader from "../../common/Loader";
+import { ErrorMessage } from "../../common/Messages";
 import styled from "styled-components";
 
 const PostContainer = styled.div`

@@ -3,11 +3,11 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
-import Loader from "../../ui/Loader";
-import { ErrorMessage } from "../../ui/Messages";
-import Container from "../../ui/Container";
-import Button from "../../ui/Button";
-import { H2, P } from "../../DisplayText";
+import Loader from "../../common/Loader";
+import { ErrorMessage } from "../../common/Messages";
+import Container from "../../common/Container";
+import Button from "../../common/Button";
+import { H2, P } from "../../common/DisplayText";
 import SearchPosts from "./SearchPosts";
 
 const Background = styled.div`

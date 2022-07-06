@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BackgroundImage from "./ui/BackgroundImage";
+import BackgroundImage from "./BackgroundImage";
 
 const HeroImg = styled(BackgroundImage)`
   position: relative;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Button from "../../ui/Button";
+import Button from "../../common/Button";
 
 const FormContainer = styled.form`
   display: flex;

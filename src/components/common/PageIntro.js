@@ -1,7 +1,7 @@
-import Container from "../components/ui/Container";
-import { H1, P } from "../components/DisplayText";
+import Container from "./Container";
+import { H1, P } from "./DisplayText";
 import styled from "styled-components";
-import Illustration from "../components/ui/Illustration";
+import Illustration from "./Illustration";
 
 const Div = styled.div`
  background-color: ${({ theme }) => theme.colors.primaryColor};
@@ -14,14 +14,14 @@ const Flex = styled.div`
   }
 `;
 
-const PageIntro = ({ title, paragraph, src, height, alt }) => {
+const PageIntro = ({ title, children, src, height, alt }) => {
   return (
     <Div>
       <Container>
         <Flex>
           <div>
             <H1 title={title} />
-            <P paragraph={paragraph} />
+            <P paragraph={children} />
           </div>
           <Illustration src={src} alt={alt} height={height} />
         </Flex>

@@ -7,10 +7,10 @@ import styled from "styled-components";
 import postRequest from "../../../lib/postRequest";
 import { BASE_URL } from "../../../constants/api";
 import AuthContext from "../../../context/AuthContext";
-import Button from "../../ui/Button";
-import { ErrorMessage } from "../../ui/Messages";
-import Container from "../../ui/Container";
-import { H2 } from "../../DisplayText"
+import Button from "../../common/Button";
+import { ErrorMessage } from "../../common/Messages";
+import Container from "../../common/Container";
+import { H2 } from "../../common/DisplayText"
 
 const FormContainer = styled.form`
   margin-top: 70px;

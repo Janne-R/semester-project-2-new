@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { H3 } from "../../DisplayText";
+import { H3 } from "../../common/DisplayText";
 import { MdClose } from 'react-icons/md';
 import PostForm from "./PostForm";
 import putRequest from "../../../lib/putRequest";
 import postRequest from "../../../lib/postRequest";
 import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-import { SuccessMessage } from "../../ui/Messages";
+import { SuccessMessage } from "../../common/Messages";
 import { useState } from 'react';
 
 const Overlay = styled.div`

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import AuthContext from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import PageIntro from "../../PageIntro.js";
+import PageIntro from "../../common/PageIntro";
 import AdminForm from "./AdminForm";
 
 const Admin = () => {
@@ -16,7 +16,9 @@ const Admin = () => {
 
   return (
     <main>
-      <PageIntro title="Welcome to your admin page" paragraph="Share your code with our community." src="images/codeSharing.png" height="140px" alt="Illustration" />
+      <PageIntro title="Welcome to your admin page" src="images/codeSharing.png" height="140px" alt="Illustration">
+        Share your code with our community.
+      </PageIntro>
       <AdminForm />
     </main>
   );
