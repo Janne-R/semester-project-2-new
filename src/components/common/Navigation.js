@@ -110,9 +110,9 @@ const Navigation = () => {
   return (
     <Container>
       <Flex>
-        <NavLink to="/"><img src="/images/logoNew.png" alt="logo" height="70px" /></NavLink>
+        <NavLink to="/"><img src="/images/logoNew.png" alt="logo" height="70px" aria-label="Go to home page" /></NavLink>
         <nav>
-          <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
+          <BurgerMenu aria-label="Open the menu" aria-hidden="true" color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
           <Ul menu={showMenu}>
             <li>
               <StyledNavLink to="/">
@@ -128,7 +128,7 @@ const Navigation = () => {
                     </StyledNavLink>
                   </li>
                   <li>
-                    <LogoutButton text="Logout" onClick={logout} />
+                    <LogoutButton aria-label="Logout" text="Logout" onClick={logout} />
                   </li>
                 </>
               ) :

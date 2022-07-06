@@ -82,15 +82,15 @@ const FooterWrapper = () => (
           <Ul>
             <Li>
               <PhoneIcon />
-              <P primary paragraph="+47 123 12 123" />
+              <P primary paragraph="+47 123 12 123" aria-label="Phone" />
             </Li>
             <Li>
               <MailIcon />
-              <P primary paragraph="post@codestack.com" />
+              <P primary paragraph="post@codestack.com" aria-label="Email" />
             </Li>
             <Li>
               <MapIcon />
-              <P primary paragraph="123 Street, Norway" />
+              <P primary paragraph="123 Street, Norway" aria-label="Adress" />
             </Li>
           </Ul>
         </Div>
