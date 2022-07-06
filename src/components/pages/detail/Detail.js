@@ -41,6 +41,7 @@ const Detail = () => {
   }
 
   if (post) {
+    console.log(post.attributes.code);
     return (
       <main>
         <PostContainer>

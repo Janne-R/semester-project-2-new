@@ -19,6 +19,7 @@ const StyledH4 = styled.h4`
 
 const StyledP = styled.p`
   color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+  white-space: pre-wrap;
 `;
 
 export const H1 = ({ title, primary }) => {
