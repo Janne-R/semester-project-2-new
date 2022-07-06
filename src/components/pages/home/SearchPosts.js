@@ -39,7 +39,7 @@ const SearchPosts = (props) => {
   };
 
   return (
-    <Container>
+    <Container as="section">
       <Form>
         <Input onChange={onKeyUp} placeholder="Search for posts here..." />
         <Icon size="1.5rem" />

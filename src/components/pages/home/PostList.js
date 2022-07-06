@@ -10,7 +10,7 @@ import Button from "../../common/Button";
 import { H2, P } from "../../common/DisplayText";
 import SearchPosts from "./SearchPosts";
 
-const Background = styled.div`
+const Background = styled.section`
   background-color: ${({ theme }) => theme.colors.primaryColor};
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ const PostList = () => {
         <SearchPosts posts={posts} searchResultUpdated={setSearchResult} />
         <Background>
           {postsToPresent.map((post) => (
-            <PostContainer key={post.id}>
+            <PostContainer as="article" key={post.id}>
               <StyledLink to={`/detail/${post.id}`}>
                 <H2 primary title={post.attributes.title} />
                 <P primary paragraph={post.attributes.short_description} />

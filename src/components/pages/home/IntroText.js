@@ -7,7 +7,7 @@ text-align: center;
 
 const IntroText = () => {
   return (
-    <Container>
+    <Container as="section">
       <CenterP>[FRONT_END_DEVELOPMENT]</CenterP>
       <CenterP>Front-end technologie resources. For developers, by developers.</CenterP>
     </Container>

@@ -6,7 +6,7 @@ import Loader from "../../common/Loader";
 import { ErrorMessage } from "../../common/Messages";
 import styled from "styled-components";
 
-const PostContainer = styled.div`
+const PostContainer = styled.section`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
   margin: 0 auto;
   width: 80%;

@@ -3,7 +3,7 @@ import { H1, P } from "./DisplayText";
 import styled from "styled-components";
 import Illustration from "./Illustration";
 
-const Div = styled.div`
+const Section = styled.section`
  background-color: ${({ theme }) => theme.colors.primaryColor};
 `;
 
@@ -16,7 +16,7 @@ const Flex = styled.div`
 
 const PageIntro = ({ title, children, src, height, alt }) => {
   return (
-    <Div>
+    <Section>
       <Container>
         <Flex>
           <div>
@@ -26,7 +26,7 @@ const PageIntro = ({ title, children, src, height, alt }) => {
           <Illustration src={src} alt={alt} height={height} />
         </Flex>
       </Container>
-    </Div>
+    </Section>
   );
 };
 

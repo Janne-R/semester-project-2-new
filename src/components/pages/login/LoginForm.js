@@ -70,7 +70,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Container>
+    <Container as="section">
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <H2 primary title="Login form" />
         {loginError && <ErrorMessage>{loginError}</ErrorMessage>}

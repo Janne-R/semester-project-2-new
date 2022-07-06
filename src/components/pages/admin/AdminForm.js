@@ -96,7 +96,7 @@ const AdminForm = () => {
 
   if (posts) {
     return (
-      <Container>
+      <Container as="section">
         <Background>
           <Flex>
             <H2 primary title="Posts" />
