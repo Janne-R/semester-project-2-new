@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const PostContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
-  margin: 0 auto ;
+  margin: 0 auto;
   width: 80%;
   max-width: 800px;
   margin-bottom: 40px;
@@ -41,7 +41,6 @@ const Detail = () => {
   }
 
   if (post) {
-    console.log(post.attributes.code);
     return (
       <main>
         <PostContainer>
@@ -53,8 +52,8 @@ const Detail = () => {
           </CodeContainer>
         </PostContainer>
       </main>
-    )
-  }
-}
+    );
+  };
+};
 
 export default Detail;

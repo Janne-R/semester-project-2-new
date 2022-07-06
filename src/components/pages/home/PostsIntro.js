@@ -37,8 +37,7 @@ const PostsIntro = () => {
         </Flex>
       </Container>
     </Div>
-
-  )
-}
+  );
+};
 
 export default PostsIntro;

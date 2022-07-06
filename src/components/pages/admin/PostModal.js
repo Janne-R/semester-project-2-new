@@ -10,7 +10,7 @@ import { SuccessMessage } from "../../ui/DisplayMessage";
 import { useState } from 'react';
 
 const Overlay = styled.div`
- position: fixed;
+  position: fixed;
   overflow-y: scroll;
   bottom: 0;
   left: 0;
@@ -30,9 +30,9 @@ const ModalContent = styled.div`
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
-  width: 32px ;
-  height: 32px ;
-  padding:0 ;
+  width: 32px;
+  height: 32px;
+  padding: 0;
 `;
 
 const Flex = styled.div`
@@ -76,7 +76,7 @@ const PostModal = ({ setShowModal, post }) => {
       console.log("error", error);
     }
     return false;
-  }
+  };
 
   const title = isAddMode ? "Add new post" : "Edit post";
   const formAction = isAddMode ? addNewPost : editPost;
@@ -94,7 +94,7 @@ const PostModal = ({ setShowModal, post }) => {
         {postSuccess && <SuccessMessage>{postSuccess}</SuccessMessage>}
       </ModalContent>
     </Overlay>
-  )
+  );
 };
 
 export default PostModal;

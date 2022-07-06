@@ -24,7 +24,7 @@ const PostContainer = styled(Container)`
   margin-bottom: 40px;
   border-radius: 5px;
   padding: 10px;
-  :first-child{
+  :first-child {
     margin-top:-30px;
     box-shadow: 0 -6px 30px #24201C;
   }
@@ -68,8 +68,8 @@ const PostList = () => {
           {posts.length === 0 && <ErrorMessage>Sorry we have no posts</ErrorMessage>}
         </Background>
       </>
-    )
-  }
-}
+    );
+  };
+};
 
 export default PostList;

@@ -10,15 +10,15 @@ function useApi(url, defaultValue) {
       try {
         setIsLoading(true);
         setIsError(false);
+
         const fetchedData = await fetch(url);
         const json = await fetchedData.json();
-        console.log("DATA")
+
         setData(json.data);
       } catch (error) {
         setIsError(true);
         console.error(error);
       } finally {
-        console.log("LOADING FALSE")
         setIsLoading(false);
       }
     }

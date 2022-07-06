@@ -41,7 +41,6 @@ const LoginButton = styled(Button)`
   width: 30%;
 `;
 
-
 const schema = yup.object().shape({
   identifier: yup.string().required("Please enter your username"),
   password: yup.string().required("Please enter your password"),
@@ -67,7 +66,7 @@ const LoginForm = () => {
       setLoginError("Wrong username or password!");
     }
     return false;
-  }
+  };
 
   return (
     <Container>
@@ -87,6 +86,6 @@ const LoginForm = () => {
       </FormContainer>
     </Container>
   );
-}
+};
 
 export default LoginForm;

@@ -9,7 +9,7 @@ const Home = () => {
       <PostsIntro />
       <PostList />
     </main>
-  )
-}
+  );
+};
 
 export default Home;

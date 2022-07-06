@@ -41,7 +41,7 @@ const AdminIntro = () => {
       </Container>
     </Div>
 
-  )
-}
+  );
+};
 
 export default AdminIntro;

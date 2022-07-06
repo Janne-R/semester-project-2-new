@@ -13,7 +13,7 @@ const Header = () => {
       <Navigation />
       <HeaderImage />
     </HeaderStyle>
-  )
-}
+  );
+};
 
 export default Header;

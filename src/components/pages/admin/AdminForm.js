@@ -67,12 +67,12 @@ const AdminForm = () => {
 
   const openAddModal = () => {
     setShowAddModal(prev => !prev)
-  }
+  };
 
   const openEditModal = (post) => {
     setPostToEdit(post);
     setShowEditModal(prev => !prev)
-  }
+  };
 
   const deletePost = async (postId) => {
     const confirmDelete = window.confirm("Do you want to delete this post?");
@@ -84,7 +84,7 @@ const AdminForm = () => {
       }
       return false;
     }
-  }
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -93,7 +93,7 @@ const AdminForm = () => {
   if (isError) {
     return <ErrorMessage>A error has occurred</ErrorMessage>;
   }
-  console.log("heiiiii", isError, isLoading, posts)
+
   if (posts) {
     return (
       <Container>
@@ -123,6 +123,6 @@ const AdminForm = () => {
       </Container>
     )
   }
-}
+};
 
 export default AdminForm;

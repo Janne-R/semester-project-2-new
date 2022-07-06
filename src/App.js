@@ -34,7 +34,6 @@ function App() {
         </Router>
       </ThemeProvider>
     </AuthProvider>
-
   );
 }
 

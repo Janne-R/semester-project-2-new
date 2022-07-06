@@ -42,8 +42,7 @@ or need a to create a new account."/>
         </Flex>
       </Container>
     </Div>
-
-  )
-}
+  );
+};
 
 export default LoginIntro;

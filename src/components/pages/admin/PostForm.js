@@ -72,7 +72,7 @@ const PostForm = ({ onSubmit, post = { attributes: {} }, submitText }) => {
 
       <Button text={submitText} />
     </FormContainer>
-  )
-}
+  );
+};
 
 export default PostForm;

@@ -17,10 +17,8 @@ const ButtonStyle = styled.button`
 
 const Button = ({ text, ...props }) => {
   return (
-    <>
-      <ButtonStyle {...props}>{text} </ButtonStyle>
-    </>
-  )
-}
+    <ButtonStyle {...props}>{text} </ButtonStyle>
+  );
+};
 
 export default Button;

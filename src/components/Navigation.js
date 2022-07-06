@@ -109,7 +109,7 @@ const Navigation = () => {
       setAuth(null);
       navigate("/");
     }
-  }
+  };
 
   return (
     <Container>

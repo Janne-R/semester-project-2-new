@@ -11,7 +11,7 @@ const IntroText = () => {
       <CenterP>[FRONT_END_DEVELOPMENT]</CenterP>
       <CenterP>Front-end technologie resources. For developers, by developers.</CenterP>
     </Container>
-  )
-}
+  );
+};
 
 export default IntroText;
