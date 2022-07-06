@@ -14,7 +14,6 @@ const Flex = styled.div`
   }
 `;
 
-
 const AdminIntro = () => {
   return (
     <Div>
@@ -28,7 +27,6 @@ const AdminIntro = () => {
         </Flex>
       </Container>
     </Div>
-
   );
 };
 

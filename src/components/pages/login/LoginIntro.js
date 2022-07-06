@@ -14,7 +14,6 @@ const Flex = styled.div`
   }
 `;
 
-
 const LoginIntro = () => {
   return (
     <Div>
