@@ -16,7 +16,7 @@ const Admin = () => {
 
   return (
     <>
-      <PageIntro title="Welcome to your admin page" src="images/codeSharing.png" height="140px" alt="Illustration">
+      <PageIntro title="Welcome to your admin page" src="images/codeSharing.png" height="140px" alt="Illustration of code sharing">
         Share your code with our community.
       </PageIntro>
       <AdminForm />
