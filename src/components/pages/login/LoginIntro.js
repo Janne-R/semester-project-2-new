@@ -14,23 +14,18 @@ const Flex = styled.div`
   }
 `;
 
-const InfoText = styled.div`
-@media ${({ theme }) => theme.devices.tabletS} { 
-  margin-right: 40px;
-}
-`;
 
 const LoginIntro = () => {
   return (
     <Div>
       <Container>
         <Flex>
-          <InfoText>
+          <div>
             <H1 title="Login to your account" />
-            <P paragraph="You need to have an administrator account to login." />
-            <P paragraph="Contact post@post.no if you are having problems
-or need a to create a new account."/>
-          </InfoText>
+            <P paragraph="Welcome to Code Stack, this is the wiki-page for
+          front-end development. Browse all our post
+          below or try the search filter."/>
+          </div>
           <Illustration src="images/loginDrawing.png" alt="image" height="200px" />
         </Flex>
       </Container>

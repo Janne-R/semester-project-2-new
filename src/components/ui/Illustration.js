@@ -5,6 +5,7 @@ const Illustration = styled.img`
   margin-bottom: -45px;
   height: ${props => props.height};
   margin-right: 20px;
+  margin-left: 20px;
 `;
 
 export default Illustration;
