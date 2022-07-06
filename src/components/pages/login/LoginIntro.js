@@ -1,6 +1,7 @@
 import Container from "../../ui/Container";
 import { H1, P } from "../../DisplayText"
 import styled from "styled-components";
+import Illustration from "../../ui/Illustration";
 
 const Div = styled.div`
  background-color: ${({ theme }) => theme.colors.primaryColor};
@@ -9,15 +10,7 @@ const Div = styled.div`
 const Flex = styled.div`
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
-  }
-`;
-
-const Img = styled.img`
-  margin-top: 20px;
-  margin-bottom: -56px;
-  @media ${({ theme }) => theme.devices.tabletS} { 
-    height: 265px;
-    margin-right: 17px;
+    justify-content: space-between;
   }
 `;
 
@@ -38,7 +31,7 @@ const LoginIntro = () => {
             <P paragraph="Contact post@post.no if you are having problems
 or need a to create a new account."/>
           </InfoText>
-          <Img src="images/loginDrawing.png" alt="image" height="250px" />
+          <Illustration src="images/loginDrawing.png" alt="image" height="200px" />
         </Flex>
       </Container>
     </Div>
