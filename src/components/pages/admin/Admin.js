@@ -15,12 +15,12 @@ const Admin = () => {
   }, [auth, navigate]);
 
   return (
-    <main>
+    <>
       <PageIntro title="Welcome to your admin page" src="images/codeSharing.png" height="140px" alt="Illustration">
         Share your code with our community.
       </PageIntro>
       <AdminForm />
-    </main>
+    </>
   );
 };
 

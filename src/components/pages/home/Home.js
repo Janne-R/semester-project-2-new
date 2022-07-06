@@ -4,7 +4,7 @@ import PostList from "./PostList";
 
 const Home = () => {
   return (
-    <main>
+    <>
       <IntroText />
       <PageIntro title="Browse our posts" src="images/codeDrawing.png" height="200px" alt="Illustration">
         Welcome to Code Stack, this is the wiki-page for
@@ -12,7 +12,7 @@ const Home = () => {
         below or try the search filter.
       </PageIntro>
       <PostList />
-    </main>
+    </>
   );
 };
 

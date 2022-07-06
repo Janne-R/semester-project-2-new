@@ -42,16 +42,14 @@ const Detail = () => {
 
   if (post) {
     return (
-      <main>
-        <PostContainer>
-          <H1 primary title={post.attributes.title} />
-          <P primary paragraph={post.attributes.short_description} />
-          <P primary paragraph={post.attributes.description} />
-          <CodeContainer>
-            <P paragraph={post.attributes.code} />
-          </CodeContainer>
-        </PostContainer>
-      </main>
+      <PostContainer>
+        <H1 primary title={post.attributes.title} />
+        <P primary paragraph={post.attributes.short_description} />
+        <P primary paragraph={post.attributes.description} />
+        <CodeContainer>
+          <P paragraph={post.attributes.code} />
+        </CodeContainer>
+      </PostContainer>
     );
   };
 };
