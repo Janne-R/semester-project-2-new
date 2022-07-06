@@ -7,7 +7,7 @@ import { ImBin } from 'react-icons/im';
 import useApi from '../../../hooks/useApi';
 import { BASE_URL } from "../../../constants/api";
 import Loader from "../../ui/Loader";
-import { ErrorMessage } from "../../ui/DisplayMessage";
+import { ErrorMessage } from "../../ui/Messages";
 import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import { useState } from "react";
@@ -60,7 +60,7 @@ const url = `${BASE_URL}/api/posts`;
 
 const AdminForm = () => {
   const { data: posts, isLoading, isError } = useApi(url, null);
-  const [auth, setAuth] = useLocalStorage("auth", null);
+  const [auth] = useLocalStorage("auth", null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [postToEdit, setPostToEdit] = useState(null);
@@ -79,7 +79,7 @@ const AdminForm = () => {
     if (confirmDelete) {
       window.location.reload(false)
       try {
-        const response = await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
+        await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
       } catch (error) {
       }
       return false;

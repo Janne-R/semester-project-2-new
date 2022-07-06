@@ -6,7 +6,7 @@ import putRequest from "../../../lib/putRequest";
 import postRequest from "../../../lib/postRequest";
 import { BASE_URL } from "../../../constants/api";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-import { SuccessMessage } from "../../ui/DisplayMessage";
+import { SuccessMessage } from "../../ui/Messages";
 import { useState } from 'react';
 
 const Overlay = styled.div`
@@ -43,13 +43,13 @@ const Flex = styled.div`
 
 const PostModal = ({ setShowModal, post }) => {
   const [postSuccess, setPostSuccess] = useState(null);
-  const [auth, setAuth] = useLocalStorage("auth", null);
+  const [auth] = useLocalStorage("auth", null);
   const isAddMode = post === undefined;
 
   const addNewPost = async (data) => {
     setPostSuccess(null);
     try {
-      const response = await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
+      await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
       setPostSuccess("Post successfully added!");
 
       setTimeout(() => {
@@ -65,7 +65,7 @@ const PostModal = ({ setShowModal, post }) => {
   const editPost = async (data) => {
     setPostSuccess(null);
     try {
-      const response = await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
+      await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
       setPostSuccess("Post successfully edited!");
 
       setTimeout(() => {

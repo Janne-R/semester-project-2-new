@@ -34,8 +34,8 @@ const LoginIntro = () => {
         <Flex>
           <InfoText>
             <H1 title="Login to your account" />
-            <P paragraph="You need to have an administrator account to login.
-Contact post@post.no if you are having problems
+            <P paragraph="You need to have an administrator account to login." />
+            <P paragraph="Contact post@post.no if you are having problems
 or need a to create a new account."/>
           </InfoText>
           <Img src="images/loginDrawing.png" alt="image" height="250px" />

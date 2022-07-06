@@ -12,7 +12,7 @@ const Admin = () => {
     if (!auth) {
       navigate("/");
     }
-  }, []);
+  }, [auth, navigate]);
 
   return (
     <main>

@@ -8,7 +8,7 @@ import postRequest from "../../../lib/postRequest";
 import { BASE_URL } from "../../../constants/api";
 import AuthContext from "../../../context/AuthContext";
 import Button from "../../ui/Button";
-import { ErrorMessage } from "../../ui/DisplayMessage";
+import { ErrorMessage } from "../../ui/Messages";
 import Container from "../../ui/Container";
 import { H2 } from "../../DisplayText"
 
@@ -54,7 +54,8 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const [auth, setAuth] = useContext(AuthContext);
+  const [, setAuth] = useContext(AuthContext);
+  console.log(setAuth);
 
   const onSubmit = async (data) => {
     setLoginError(null);

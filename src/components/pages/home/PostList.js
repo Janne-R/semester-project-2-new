@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
 import Loader from "../../ui/Loader";
-import { ErrorMessage } from "../../ui/DisplayMessage";
+import { ErrorMessage } from "../../ui/Messages";
 import Container from "../../ui/Container";
 import Button from "../../ui/Button";
 import { H2, P } from "../../DisplayText";

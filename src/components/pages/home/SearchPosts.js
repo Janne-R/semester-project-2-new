@@ -29,7 +29,7 @@ const SearchPosts = (props) => {
     const searchValue = event.target.value.trim().toLowerCase();
 
     const filteredPosts = props.posts.filter((post) => {
-      if (post.attributes.title.toLowerCase().includes(searchValue) || post.attributes.short_description.toLowerCase().includes(searchValue)) {
+      if (post.attributes?.title?.toLowerCase().includes(searchValue) || post.attributes?.short_description?.toLowerCase().includes(searchValue)) {
         return true;
       }
       return false;

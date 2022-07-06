@@ -30,21 +30,18 @@ const Ul = styled.ul`
     margin-bottom:20px;
     margin-top:10px;
   }
-    a {
-      text-decoration: none;
-      font-size: 21px;
-    }
+
+  a {
+    text-decoration: none;
+    font-size: 21px;
+  }
   @media ${({ theme }) => theme.devices.tabletS} { 
     display: flex;
     flex-direction: row;
     position: unset;
-  }
-`;
-
-const Li = styled.li`
-  @media ${({ theme }) => theme.devices.tabletS} { 
-    margin-bottom: 10px;
+    li:not(:last-child) {
     margin-right: 50px;
+    }
   }
 `;
 
@@ -118,19 +115,19 @@ const Navigation = () => {
         <nav>
           <BurgerMenu color="black" size="2rem" onClick={() => setShowMenu(!showMenu)} />
           <Ul menu={showMenu}>
-            <Li>
+            <li>
               <StyledNavLink to="/">
                 Home
               </StyledNavLink>
-            </Li>
+            </li>
             <>
               {auth ? (
                 <>
-                  <Li>
+                  <li>
                     <StyledNavLink to="/admin">
                       Admin
                     </StyledNavLink>
-                  </Li>
+                  </li>
                   <li>
                     <LogoutButton text="Logout" onClick={logout} />
                   </li>
