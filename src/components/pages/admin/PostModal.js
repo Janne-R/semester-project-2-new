@@ -28,11 +28,11 @@ const ModalContent = styled.div`
   max-width: 800px;
 `;
 
-const CloseModalButton = styled(MdClose)`
+const CloseModalButton = styled.button`
   cursor: pointer;
-  width: 32px;
-  height: 32px;
-  padding: 0;
+  background: none;
+  border: none;
+  font-size: xx-large;
 `;
 
 const Flex = styled.div`
@@ -86,7 +86,7 @@ const PostModal = ({ setShowModal, post }) => {
       <ModalContent>
         <Flex>
           <H3 primary uppercase title={title} />
-          <CloseModalButton aria-label="Close modal" onClick={() => setShowModal(prev => !prev)} />
+          <CloseModalButton aria-label="Close modal" onClick={() => setShowModal(prev => !prev)}><MdClose /></CloseModalButton>
         </Flex>
         <div>
           <PostForm post={post} submitText={title} onSubmit={formAction} />
