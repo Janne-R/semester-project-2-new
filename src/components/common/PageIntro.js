@@ -14,7 +14,7 @@ const Flex = styled.div`
   }
 `;
 
-const PageIntro = ({ title, children, src, height, alt }) => {
+const PageIntro = ({ title, children, src, height, width, alt }) => {
   return (
     <Section>
       <Container>
@@ -23,7 +23,7 @@ const PageIntro = ({ title, children, src, height, alt }) => {
             <H1 title={title} />
             <P paragraph={children} />
           </div>
-          <Illustration src={src} alt={alt} height={height} />
+          <Illustration src={src} alt={alt} height={height} width={width} />
         </Flex>
       </Container>
     </Section>

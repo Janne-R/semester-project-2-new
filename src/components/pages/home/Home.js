@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <IntroText />
-      <PageIntro title="Browse our posts" src="images/codeDrawing.png" height="200px" alt="Illustration of browsing posts">
+      <PageIntro title="Browse our posts" src="images/codeDrawing.png" width="308" height="200" alt="Illustration of browsing posts">
         Welcome to Code Stack, this is the wiki-page for
         front-end development. Browse all our post
         below or try the search filter.
