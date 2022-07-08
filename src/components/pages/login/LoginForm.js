@@ -75,7 +75,7 @@ const LoginForm = () => {
         <H2 primary title="Login form" />
         {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
 
-        <Label for="identifier">Username/Email</Label>
+        <Label for="identifier">Username</Label>
         <Input {...register("identifier")} />
         {errors.identifier && <Span>{errors.identifier.message}</Span>}
 
