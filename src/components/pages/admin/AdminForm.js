@@ -10,7 +10,7 @@ import Loader from "../../common/Loader";
 import { ErrorMessage } from "../../common/Messages";
 import deleteRequest from "../../../lib/deleteRequest";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PostModal from "./PostModal";
 
 const Background = styled.div`
@@ -59,11 +59,16 @@ const FormButton = styled.button`
 const url = `${BASE_URL}/api/posts`;
 
 const AdminForm = () => {
-  const { data: posts, isLoading, isError } = useApi(url, null);
+  const { data, isLoading, isError } = useApi(url, null);
+  const [posts, setPosts] = useState(null);
   const [auth] = useLocalStorage("auth", null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [postToEdit, setPostToEdit] = useState(null);
+
+  useEffect(() => {
+    setPosts(data);
+  }, [data]);
 
   const openAddModal = () => {
     setShowAddModal(prev => !prev);
@@ -77,9 +82,13 @@ const AdminForm = () => {
   const deletePost = async (postId) => {
     const confirmDelete = window.confirm("Do you want to delete this post?");
     if (confirmDelete) {
-      window.location.reload(false);
+
       try {
         await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
+        const newPosts = posts.filter((post) => {
+          return post.id !== postId;
+        });
+        setPosts(newPosts);
       } catch (error) {
       }
       return false;
