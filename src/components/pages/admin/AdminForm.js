@@ -74,10 +74,30 @@ const AdminForm = () => {
     setShowAddModal(prev => !prev);
   };
 
+  const postAdded = (addedPost) => {
+    setPosts([...posts, addedPost]);
+    setTimeout(() => {
+      setShowAddModal(false);
+    }, 1000);
+  }
+
   const openEditModal = (post) => {
     setPostToEdit(post);
     setShowEditModal(prev => !prev);
   };
+
+  const postEdited = (updatedPost) => {
+    const newPosts = posts.map((post) => {
+      if (post.id === updatedPost.id) {
+        return updatedPost;
+      }
+      return post;
+    });
+    setPosts(newPosts);
+    setTimeout(() => {
+      setShowEditModal(false);
+    }, 1000);
+  }
 
   const deletePost = async (postId) => {
     const confirmDelete = window.confirm("Do you want to delete this post?");
@@ -111,7 +131,7 @@ const AdminForm = () => {
             <H2 primary title="Posts" />
             <Button onClick={openAddModal} width={"150px"} text="Add new" />
             {showAddModal &&
-              <PostModal setShowModal={setShowAddModal} />}
+              <PostModal setShowModal={setShowAddModal} onSuccess={postAdded} />}
           </Flex>
           <GridHeader>
             <H3 primary uppercase title="Id" />
@@ -127,7 +147,7 @@ const AdminForm = () => {
           ))}
           {posts.length === 0 && <ErrorMessage>There are no more posts!</ErrorMessage>}
           {showEditModal &&
-            <PostModal post={postToEdit} setShowModal={setShowEditModal} />}
+            <PostModal post={postToEdit} setShowModal={setShowEditModal} onSuccess={postEdited} />}
         </Background>
       </Container>
     )

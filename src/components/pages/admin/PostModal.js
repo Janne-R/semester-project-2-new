@@ -42,7 +42,7 @@ const Flex = styled.div`
   align-items: center;
 `;
 
-const PostModal = ({ setShowModal, post }) => {
+const PostModal = ({ setShowModal, post, onSuccess }) => {
   const [postSuccess, setPostSuccess] = useState(null);
   const [auth] = useLocalStorage("auth", null);
   const isAddMode = post === undefined;
@@ -50,12 +50,9 @@ const PostModal = ({ setShowModal, post }) => {
   const addNewPost = async (data) => {
     setPostSuccess(null);
     try {
-      await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
+      const addedPost = await postRequest(`${BASE_URL}/api/posts`, { data }, { Authorization: `Bearer ${auth.jwt}` });
+      onSuccess(addedPost.data);
       setPostSuccess("Post successfully added!");
-
-      setTimeout(() => {
-        window.location.reload(false);
-      }, 2000);
 
     } catch (error) {
       console.log("error", error);
@@ -66,12 +63,9 @@ const PostModal = ({ setShowModal, post }) => {
   const editPost = async (data) => {
     setPostSuccess(null);
     try {
-      await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
+      const updatedPost = await putRequest(`${BASE_URL}/api/posts/${post.id}`, { data }, auth.jwt);
+      onSuccess(updatedPost.data);
       setPostSuccess("Post successfully edited!");
-
-      setTimeout(() => {
-        window.location.reload(false);
-      }, 2000);
 
     } catch (error) {
       console.log("error", error);
