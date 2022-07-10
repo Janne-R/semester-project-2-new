@@ -45,6 +45,7 @@ const GridHeader = styled(Grid)`
 `;
 
 const FormButton = styled.button`
+  cursor: pointer;
   background: none;
   border: none;
   text-align: start;
