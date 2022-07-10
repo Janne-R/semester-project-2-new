@@ -12,6 +12,7 @@ const ButtonStyle = styled.button`
   transition-duration: 0.4s;
   :hover{
     background-color: ${({ theme }) => theme.colors.highLightColor};
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 

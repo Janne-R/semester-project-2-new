@@ -55,7 +55,6 @@ const LoginForm = () => {
   });
 
   const [, setAuth] = useContext(AuthContext);
-  console.log(setAuth);
 
   const onSubmit = async (data) => {
     setLoginError(null);
@@ -75,11 +74,11 @@ const LoginForm = () => {
         <H2 primary title="Login form" />
         {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
 
-        <Label for="identifier">Username</Label>
+        <Label htmlFor="identifier">Username</Label>
         <Input {...register("identifier")} />
         {errors.identifier && <Span>{errors.identifier.message}</Span>}
 
-        <Label for="password">Password</Label>
+        <Label htmlFor="password">Password</Label>
         <Input {...register("password")} type="password" />
         {errors.password && <Span>{errors.password.message}</Span>}
 

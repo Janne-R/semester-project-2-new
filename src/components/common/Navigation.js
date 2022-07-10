@@ -75,6 +75,7 @@ const LoginButton = styled(NavLink)`
   transition-duration: 0.4s;
   :hover{
     background-color: ${({ theme }) => theme.colors.highLightColor};
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 
@@ -90,6 +91,7 @@ const LogoutButton = styled(Button)`
  transition-duration: 0.4s;
   :hover{
     background-color: ${({ theme }) => theme.colors.highLightColor};
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 

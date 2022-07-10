@@ -54,19 +54,19 @@ const PostForm = ({ onSubmit, post = { attributes: {} }, submitText }) => {
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
-      <Label for="title">Title</Label>
+      <Label htmlFor="title">Title</Label>
       <Input {...register("title")} />
       {errors.title && <Span>{errors.title.message}</Span>}
 
-      <Label for="short_description">Short Description</Label>
+      <Label htmlFor="short_description">Short Description</Label>
       <Textarea rows="7" {...register("short_description")} />
       {errors.short_description && <Span>{errors.short_description.message}</Span>}
 
-      <Label for="description">Long Description</Label>
+      <Label htmlFor="description">Long Description</Label>
       <Textarea rows="12" {...register("description")} />
       {errors.description && <Span>{errors.description.message}</Span>}
 
-      <Label for="code">Code example</Label>
+      <Label htmlFor="code">Code example</Label>
       <Textarea rows="7" {...register("code")} />
       {errors.code && <Span>{errors.code.message}</Span>}
 
