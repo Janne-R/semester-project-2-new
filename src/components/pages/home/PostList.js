@@ -51,11 +51,18 @@ const PostList = () => {
   const postsToPresent = searchResult ? searchResult : posts;
 
   if (posts) {
+    const postsByNewest = postsToPresent.sort((firstPost, secondPost) => {
+      const firstPostUtcTime = (new Date(firstPost.attributes.createdAt)).getTime();
+      const secondPostUtcTime = (new Date(secondPost.attributes.createdAt)).getTime();
+
+      return secondPostUtcTime - firstPostUtcTime;
+    });
+
     return (
       <>
         <SearchPosts posts={posts} searchResultUpdated={setSearchResult} />
         <Background>
-          {postsToPresent.map((post) => (
+          {postsByNewest.map((post) => (
             <PostContainer as="article" key={post.id}>
               <StyledLink to={`/detail/${post.id}`}>
                 <H2 primary title={post.attributes.title} />

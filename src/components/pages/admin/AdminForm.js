@@ -67,7 +67,10 @@ const AdminForm = () => {
   const [postToEdit, setPostToEdit] = useState(null);
 
   useEffect(() => {
-    setPosts(data);
+    if (data !== null) {
+      const sortedAsc = data.sort((firstPost, secondPost) => firstPost.id - secondPost.id);
+      setPosts(sortedAsc);
+    }
   }, [data]);
 
   const openAddModal = () => {
