@@ -9,7 +9,7 @@ const Login = () => {
       </PageIntro>
       <LoginForm />
     </>
-  )
-}
+  );
+};
 
 export default Login;

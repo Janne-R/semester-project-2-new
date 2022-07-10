@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FocusTrap from "focus-trap-react";
 import { H3 } from "../../common/DisplayText";
 import { MdClose } from 'react-icons/md';
 import PostForm from "./PostForm";
@@ -21,7 +22,7 @@ const Overlay = styled.div`
 
 const ModalContent = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundColorLight};
-  padding:10px ;
+  padding:10px;
   margin: 15% auto; 
   border-radius: 12px;
   width: 80%; 
@@ -82,18 +83,20 @@ const PostModal = ({ setShowModal, post }) => {
   const formAction = isAddMode ? addNewPost : editPost;
 
   return (
-    <Overlay>
-      <ModalContent>
-        <Flex>
-          <H3 primary uppercase title={title} />
-          <CloseModalButton aria-label="Close modal" onClick={() => setShowModal(prev => !prev)}><MdClose /></CloseModalButton>
-        </Flex>
-        <div>
-          <PostForm post={post} submitText={title} onSubmit={formAction} />
-        </div>
-        {postSuccess && <SuccessMessage>{postSuccess}</SuccessMessage>}
-      </ModalContent>
-    </Overlay>
+    <FocusTrap>
+      <Overlay>
+        <ModalContent>
+          <Flex>
+            <H3 primary uppercase title={title} />
+            <CloseModalButton aria-label="Close modal" onClick={() => setShowModal(prev => !prev)}><MdClose /></CloseModalButton>
+          </Flex>
+          <div>
+            <PostForm post={post} submitText={title} onSubmit={formAction} />
+          </div>
+          {postSuccess && <SuccessMessage>{postSuccess}</SuccessMessage>}
+        </ModalContent>
+      </Overlay>
+    </FocusTrap>
   );
 };
 

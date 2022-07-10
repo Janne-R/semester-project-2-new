@@ -1,24 +1,24 @@
 import styled from "styled-components";
 
 const StyledH1 = styled.h1`
-  color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+  color: ${({ primaryColor, theme }) => primaryColor ? theme.colors.textColorDark : theme.colors.textColorLight};
 `;
 
 const StyledH2 = styled.h2`
-  color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+  color: ${({ primaryColor, theme }) => primaryColor ? theme.colors.textColorDark : theme.colors.textColorLight};
 `;
 
 const StyledH3 = styled.h3`
-  color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+  color: ${({ primaryColor, theme }) => primaryColor ? theme.colors.textColorDark : theme.colors.textColorLight};
 `;
 
 const StyledH4 = styled.h4`
-  color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+ color: ${({ primaryColor, theme }) => primaryColor ? theme.colors.textColorDark : theme.colors.textColorLight};
   text-transform: ${props => props.uppercase ? "uppercase" : "lowercase"};
 `;
 
 const StyledP = styled.p`
-  color: ${props => props.primaryColor ? ({ theme }) => theme.colors.textColorDark : ({ theme }) => theme.colors.textColorLight};
+color: ${({ primaryColor, theme }) => primaryColor ? theme.colors.textColorDark : theme.colors.textColorLight};
   white-space: pre-wrap;
 `;
 

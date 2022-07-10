@@ -9,7 +9,7 @@ const IntroText = () => {
   return (
     <Container as="section">
       <CenterP>[FRONT_END_DEVELOPMENT]</CenterP>
-      <CenterP>Front-end technologie resources. For developers, by developers.</CenterP>
+      <CenterP>Front-end technology resources. For developers, by developers.</CenterP>
     </Container>
   );
 };

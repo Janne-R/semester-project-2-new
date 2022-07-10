@@ -90,7 +90,7 @@ const FooterWrapper = () => (
             </Li>
             <Li>
               <MapIcon />
-              <P primary paragraph="123 Street, Norway" aria-label="Adress" />
+              <P primary paragraph="123 Street, Norway" aria-label="Address" />
             </Li>
           </Ul>
         </Div>

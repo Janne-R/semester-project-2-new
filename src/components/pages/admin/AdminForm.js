@@ -66,18 +66,18 @@ const AdminForm = () => {
   const [postToEdit, setPostToEdit] = useState(null);
 
   const openAddModal = () => {
-    setShowAddModal(prev => !prev)
+    setShowAddModal(prev => !prev);
   };
 
   const openEditModal = (post) => {
     setPostToEdit(post);
-    setShowEditModal(prev => !prev)
+    setShowEditModal(prev => !prev);
   };
 
   const deletePost = async (postId) => {
     const confirmDelete = window.confirm("Do you want to delete this post?");
     if (confirmDelete) {
-      window.location.reload(false)
+      window.location.reload(false);
       try {
         await deleteRequest(`${BASE_URL}/api/posts/${postId}`, auth.jwt);
       } catch (error) {

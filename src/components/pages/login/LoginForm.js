@@ -10,7 +10,7 @@ import AuthContext from "../../../context/AuthContext";
 import Button from "../../common/Button";
 import { ErrorMessage } from "../../common/Messages";
 import Container from "../../common/Container";
-import { H2 } from "../../common/DisplayText"
+import { H2 } from "../../common/DisplayText";
 
 const FormContainer = styled.form`
   margin-top: 70px;
