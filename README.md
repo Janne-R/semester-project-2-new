@@ -1,6 +1,37 @@
-# Getting Started with Create React App
+# Semester project 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is part of my education at Noroff and was my second year semester project. 
+
+## Description
+
+This project is a wiki styled webpage for front end development. It contains:
+
+- a blog listing
+- a login page
+- a adminpage
+
+## Built with
+
+This project is build with Create React App [Create React App](https://github.com/facebook/create-react-app).
+
+- React.js
+- Styled components
+
+## Getting Started
+
+### Installing
+
+1. Clone the repo:
+
+```bash
+git clone git@github.com:Janne-R/semester-project-2-new
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
 
 ## Available Scripts
 
@@ -68,3 +99,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Contact
+
+This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
+
+[My LinkedIn page](https://www.linkedin.com/in/janneringdal/)
