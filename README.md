@@ -24,7 +24,7 @@ This project is build with Create React App [Create React App](https://github.co
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:Janne-R/semester-project-2-new
+git clone https://github.com/Janne-R/semester-project-2-new.git
 ```
 
 2. Install the dependencies:
