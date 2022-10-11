@@ -103,6 +103,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Contact
 
-This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
+If you want to contact me, use my LinkedIn page:
 
 [My LinkedIn page](https://www.linkedin.com/in/janneringdal/)
